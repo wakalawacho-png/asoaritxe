@@ -1,0 +1,8 @@
+vie 03 oct 2025 17:33:16 CEST
+aritxe   tty2         :0               Fri Oct  3 16:08   still logged in
+reboot   system boot  6.8.0-41-generic Fri Oct  3 16:07   still running
+aritxe   tty2         :0               Tue Sep 30 18:44 - crash (2+21:22)
+reboot   system boot  6.8.0-41-generic Tue Sep 30 18:44   still running
+aritxe   tty2         :0               Tue Sep 30 18:21 - crash  (00:22)
+
+wtmp empieza Mon Sep 22 18:15:05 2025
