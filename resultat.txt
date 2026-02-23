@@ -1,0 +1,1934 @@
+/etc/ppp/ip-up.d/0000usepeerdns:# exit if the resolvconf package is installed
+/etc/ppp/ip-up.d/0000usepeerdns:[ -x /sbin/resolvconf ] && exit 0
+/etc/ppp/ip-up.d/0000usepeerdns:if [ ! -e /etc/resolv.conf ]; then
+/etc/ppp/ip-up.d/0000usepeerdns:  : > /etc/resolv.conf
+/etc/ppp/ip-up.d/0000usepeerdns:REALRESOLVCONF=$(readlink --canonicalize /etc/resolv.conf)
+/etc/ppp/ip-up.d/0000usepeerdns:# merge the new nameservers with the other options from the old configuration
+/etc/ppp/ip-up.d/0000usepeerdns:  cat /etc/ppp/resolv.conf
+/etc/ppp/ip-up.d/0000usepeerdns:# backup the old configuration and install the new one
+/etc/ppp/ip-up.d/0000usepeerdns:# restart nscd because resolv.conf has changed
+/etc/ppp/ip-down.d/0000usepeerdns:# exit if the resolvconf package is installed
+/etc/ppp/ip-down.d/0000usepeerdns:[ -x /sbin/resolvconf ] && exit 0
+/etc/ppp/ip-down.d/0000usepeerdns:if [ -e /etc/resolv.conf ]; then
+/etc/ppp/ip-down.d/0000usepeerdns:  REALRESOLVCONF=$(readlink --canonicalize /etc/resolv.conf)
+/etc/ppp/ip-down.d/0000usepeerdns:  REALRESOLVCONF=/etc/resolv.conf
+/etc/ppp/ip-down.d/0000usepeerdns:# if an old resolv.conf file exists, restore it
+/etc/ppp/ip-down.d/0000usepeerdns:  # restart nscd because resolv.conf has changed
+/etc/ppp/peers/provider:# example configuration for a dialup connection authenticated with PAP or CHAP
+/etc/ppp/peers/provider:# This is the default configuration used by pon(1) and poff(1).
+/etc/ppp/ip-pre-up:# configure the new interface etc. you should create script(s) there.
+/etc/ppp/options:# Two Servers can be remotely configured
+/etc/ppp/options:# only be required if the peer is buggy and gets confused by requests
+/etc/ppp/options:# setting up /etc/syslog.conf appropriately (see syslog.conf(5)).  (If
+/etc/ppp/options:# Set the maximum number of LCP configure-request transmissions to <n>
+/etc/ppp/options:#lcp-max-configure <n>
+/etc/ppp/options:# Set the maximum number of LCP configure-NAKs returned before starting
+/etc/ppp/options:# to send configure-Rejects instead to <n> (default 10).
+/etc/ppp/options:# Set the maximum number of IPCP configure-request transmissions to <n>
+/etc/ppp/options:#ipcp-max-configure <n>
+/etc/ppp/options:# Set the maximum number of IPCP configure-NAKs returned before starting
+/etc/ppp/options:# to send configure-Rejects instead to <n> (default 10).
+/etc/ppp/options:# the command line or in an options file.  Pppd will initially configure
+/etc/manpath.config:# manpath.config
+/etc/manpath.config:# This file is used by the man-db package to configure the man and cat paths.
+/etc/manpath.config:# In a per-user configuration file, this directive only controls the
+/etc/apparmor.d/flatpak:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/flatpak:profile flatpak /usr/bin/flatpak flags=(unconfined) {
+/etc/apparmor.d/virtiofsd:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/virtiofsd:profile virtiofsd /usr/libexec/virtiofsd flags=(unconfined) {
+/etc/apparmor.d/element-desktop:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/element-desktop:profile element-desktop /opt/Element/element-desktop flags=(unconfined) {
+/etc/apparmor.d/lxc-usernsexec:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/lxc-usernsexec:profile lxc-usernsexec /usr/bin/lxc-usernsexec flags=(unconfined) {
+/etc/apparmor.d/rootlesskit:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/rootlesskit:profile rootlesskit /usr/bin/rootlesskit flags=(unconfined) {
+/etc/apparmor.d/systemd-coredump:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/systemd-coredump:profile systemd-coredump /usr/lib/systemd/systemd-coredump flags=(unconfined) {
+/etc/apparmor.d/1password:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/1password:profile 1password /opt/1Password/1password flags=(unconfined) {
+/etc/apparmor.d/chrome:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/chrome:profile chrome /opt/google/chrome/chrome flags=(unconfined) {
+/etc/apparmor.d/lc-compliance:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/lc-compliance:profile lc-compliance /usr/bin/lc-compliance flags=(unconfined) {
+/etc/apparmor.d/libcamerify:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/libcamerify:profile libcamerify /usr/bin/libcamerify flags=(unconfined) {
+/etc/apparmor.d/linux-sandbox:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/linux-sandbox:profile linux-sandbox /usr/libexec/@{multiarch}/bazel/linux-sandbox flags=(unconfined) {
+/etc/apparmor.d/sbuild-shell:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/sbuild-shell:profile sbuild-shell /usr/bin/sbuild-shell flags=(unconfined) {
+/etc/apparmor.d/usr.sbin.cups-browsed:  /etc/cups/cups-browsed.conf r,
+/etc/apparmor.d/usr.sbin.cups-browsed:  /etc/cups/cups-browsed-debian-edu.conf r,
+/etc/apparmor.d/sbuild-apt:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/sbuild-apt:profile sbuild-apt /usr/bin/sbuild-apt flags=(unconfined) {
+/etc/apparmor.d/nvidia_modprobe:  @{sys}/devices/pci[0-9]*/**/config r,
+/etc/apparmor.d/nvidia_modprobe:    /etc/modprobe.d/{,*.conf} r,
+/etc/apparmor.d/nvidia_modprobe:    /etc/nvidia/{current,legacy*,tesla*}/*.conf r,
+/etc/apparmor.d/lxc-attach:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/lxc-attach:profile lxc-attach /usr/bin/lxc-attach flags=(unconfined) {
+/etc/apparmor.d/ipa_verify:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/ipa_verify:profile ipa_verify /usr/bin/ipa_verify flags=(unconfined) {
+/etc/apparmor.d/kchmviewer:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/kchmviewer:profile kchmviewer /usr/bin/kchmviewer flags=(unconfined) {
+/etc/apparmor.d/mmdebstrap:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/mmdebstrap:profile mmdebstrap /usr/bin/mmdebstrap flags=(unconfined) {
+/etc/apparmor.d/loupe:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/loupe:profile loupe /usr/bin/loupe flags=(unconfined) {
+/etc/apparmor.d/slirp4netns:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/slirp4netns:profile slirp4netns /usr/bin/slirp4netns flags=(unconfined) {
+/etc/apparmor.d/scide:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/scide:profile scide /usr/bin/scide flags=(unconfined) {
+/etc/apparmor.d/tuxedo-control-center:# application a name instead of having the label unconfined
+/etc/apparmor.d/tuxedo-control-center:profile tuxedo-control-center /opt/tuxedo-control-center/tuxedo-control-center flags=(unconfined) {
+/etc/apparmor.d/pageedit:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/pageedit:profile pageedit /usr/bin/pageedit flags=(unconfined) {
+/etc/apparmor.d/Discord:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/Discord:profile Discord /usr/share/discord/Discord flags=(unconfined) {
+/etc/apparmor.d/sbuild-distupgrade:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/sbuild-distupgrade:profile sbuild-distupgrade /usr/bin/sbuild-distupgrade flags=(unconfined) {
+/etc/apparmor.d/qcam:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/qcam:profile qcam /usr/bin/qcam flags=(unconfined) {
+/etc/apparmor.d/rssguard:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/rssguard:profile rssguard /usr/bin/rssguard flags=(unconfined) {
+/etc/apparmor.d/thunderbird:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/thunderbird:profile thunderbird /usr/bin/thunderbird flags=(unconfined) {
+/etc/apparmor.d/MongoDB_Compass:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/MongoDB_Compass:profile "MongoDB Compass" "/usr/lib/mongodb-compass/MongoDB Compass" flags=(unconfined) {
+/etc/apparmor.d/sbuild-abort:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/sbuild-abort:profile sbuild-abort /usr/bin/sbuild-abort flags=(unconfined) {
+/etc/apparmor.d/opam:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/opam:profile opam /usr/bin/opam flags=(unconfined) {
+/etc/apparmor.d/privacybrowser:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/privacybrowser:profile privacybrowser /usr/bin/privacybrowser flags=(unconfined) {
+/etc/apparmor.d/vpnns:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/vpnns:profile vpnns /usr/bin/vpnns flags=(unconfined) {
+/etc/apparmor.d/msedge:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/msedge:profile msedge /opt/microsoft/msedge/msedge flags=(unconfined) {
+/etc/apparmor.d/sbuild-createchroot:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/sbuild-createchroot:profile sbuild-createchroot /usr/bin/sbuild-createchroot flags=(unconfined) {
+/etc/apparmor.d/qutebrowser:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/qutebrowser:profile qutebrowser /usr/bin/qutebrowser flags=(unconfined) {
+/etc/apparmor.d/code:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/code:profile vscode /usr/share/code{/bin,}/code flags=(unconfined) {
+/etc/apparmor.d/unprivileged_userns:# Special profile transitioned to by unconfined when creating an unprivileged
+/etc/apparmor.d/surfshark:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/surfshark:profile surfshark /opt/Surfshark/surfshark flags=(unconfined) {
+/etc/apparmor.d/nautilus:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/nautilus:profile nautilus /usr/bin/nautilus flags=(unconfined) {
+/etc/apparmor.d/crun:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/crun:profile crun /usr/bin/crun flags=(unconfined) {
+/etc/apparmor.d/epiphany:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/epiphany:profile epiphany /usr/bin/epiphany{,-browser} flags=(unconfined) {
+/etc/apparmor.d/usr.lib.libreoffice.program.oosplash:  /etc/nsswitch.conf                    r,
+/etc/apparmor.d/usr.lib.libreoffice.program.oosplash:  owner @{HOME}/.config/libreoffice{,dev}/?/user/uno_packages/cache/log.txt rw,
+/etc/apparmor.d/usr.lib.libreoffice.program.oosplash:  unix peer=(addr=@/tmp/.ICE-unix/* label=unconfined),
+/etc/apparmor.d/usr.lib.libreoffice.program.oosplash:  unix peer=(addr=@/tmp/.X11-unix/* label=unconfined),
+/etc/apparmor.d/lxc-destroy:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/lxc-destroy:profile lxc-destroy /usr/bin/lxc-destroy flags=(unconfined) {
+/etc/apparmor.d/usr.lib.libreoffice.program.soffice.bin:  owner @{HOME}/.config/libreoffice{,dev}/** rwk,
+/etc/apparmor.d/usr.lib.libreoffice.program.soffice.bin:  owner @{HOME}/.config/soffice.binrc rwl -> @{HOME}/.config/#[0-9]*,
+/etc/apparmor.d/usr.lib.libreoffice.program.soffice.bin:  owner @{HOME}/.config/soffice.binrc.* rwl -> @{HOME}/.config/#[0-9]*,
+/etc/apparmor.d/usr.lib.libreoffice.program.soffice.bin:  owner @{HOME}/.config/soffice.binrc.lock rwk,
+/etc/apparmor.d/usr.lib.libreoffice.program.soffice.bin:  owner @{HOME}/.cache/fontconfig/**    rw,
+/etc/apparmor.d/usr.lib.libreoffice.program.soffice.bin:  owner @{HOME}/.config/gtk-???/bookmarks r,  #Make bookmarks work
+/etc/apparmor.d/usr.lib.libreoffice.program.soffice.bin:  owner /{,var/}run/user/*/dconf/user   rw,
+/etc/apparmor.d/usr.lib.libreoffice.program.soffice.bin:  owner @{HOME}/.config/dconf/user      r,
+/etc/apparmor.d/usr.lib.libreoffice.program.soffice.bin:  /usr/bin/paperconf                    rmix,
+/etc/apparmor.d/usr.lib.libreoffice.program.soffice.bin:  /usr/bin/gpgconf                      rmix,
+/etc/apparmor.d/usr.lib.libreoffice.program.soffice.bin:  unix peer=(addr=@/tmp/.ICE-unix/* label=unconfined),  #Gstreamer doesn't work without this
+/etc/apparmor.d/usr.lib.libreoffice.program.soffice.bin:  /var/cache/fontconfig/                rw,
+/etc/apparmor.d/usr.lib.libreoffice.program.soffice.bin:  /usr/share/*-fonts/conf.avail/*.conf  r,
+/etc/apparmor.d/usr.lib.libreoffice.program.soffice.bin:  /usr/share/fonts-config/conf.avail/*.conf r,
+/etc/apparmor.d/usr.lib.libreoffice.program.soffice.bin:   /usr/bin/gpgconf rm,
+/etc/apparmor.d/usr.lib.libreoffice.program.soffice.bin:  owner @{HOME}/.config/kdeglobals r,
+/etc/apparmor.d/usr.lib.libreoffice.program.soffice.bin:  owner @{HOME}/.config/baloofilerc r, # indexing options (excludes, etc), used by KFileWidget
+/etc/apparmor.d/usr.lib.libreoffice.program.soffice.bin:  owner @{HOME}/.config/dolphinrc r, # settings used by KFileWidget
+/etc/apparmor.d/usr.lib.libreoffice.program.soffice.bin:  owner @{HOME}/.config/kde.org/libphonon.conf r, # for KNotifications::sendEvent()
+/etc/apparmor.d/usr.lib.libreoffice.program.soffice.bin:  owner @{HOME}/.config/klanguageoverridesrc r, # per-application languages, for KDEPrivate::initializeLanguages() from libKF5XmlGui.so
+/etc/apparmor.d/usr.lib.libreoffice.program.soffice.bin:  owner @{HOME}/.config/trashrc r, # user by KFileWidget
+/etc/apparmor.d/usr.lib.libreoffice.program.soffice.bin:  owner @{HOME}/.config/#[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9] rw,
+/etc/apparmor.d/usr.lib.libreoffice.program.soffice.bin:  owner @{HOME}/.config/QtProject.conf rw,
+/etc/apparmor.d/usr.lib.libreoffice.program.soffice.bin:  owner @{HOME}/.config/QtProject.conf.?????? l -> @{HOME}/.config/#[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9],
+/etc/apparmor.d/usr.lib.libreoffice.program.soffice.bin:  owner @{HOME}/.config/QtProject.conf.?????? rw, # for temporary files like QtProject.conf.Aqrgeb
+/etc/apparmor.d/usr.lib.libreoffice.program.soffice.bin:  owner @{HOME}/.config/QtProject.conf.lock rwk,
+/etc/apparmor.d/usr.lib.libreoffice.program.soffice.bin:  owner @{HOME}/.config/kdeglobals rw,
+/etc/apparmor.d/usr.lib.libreoffice.program.soffice.bin:  owner @{HOME}/.config/kdeglobals.* rwl -> @{HOME}/.config/#[0-9]*,
+/etc/apparmor.d/usr.lib.libreoffice.program.soffice.bin:  owner @{HOME}/.config/kdeglobals.lock rwk,
+/etc/apparmor.d/tup:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/tup:profile tup /usr/bin/tup flags=(unconfined) {
+/etc/apparmor.d/sbuild-clean:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/sbuild-clean:profile sbuild-clean /usr/bin/sbuild-clean flags=(unconfined) {
+/etc/apparmor.d/usr.lib.libreoffice.program.xpdfimport:  /usr/share/libreoffice/share/config/* r,
+/etc/apparmor.d/usr.lib.libreoffice.program.xpdfimport:  owner @{HOME}/.config/libreoffice{,dev}/?/user/uno_packages/cache/log.txt rw,
+/etc/apparmor.d/QtWebEngineProcess:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/QtWebEngineProcess:profile QtWebEngineProcess /usr/lib/@{multiarch}/qt{5,6}/libexec/QtWebEngineProcess flags=(unconfined) {
+/etc/apparmor.d/userbindmount:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/userbindmount:profile userbindmount /usr/bin/userbindmount flags=(unconfined) {
+/etc/apparmor.d/toybox:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/toybox:profile toybox /bin/toybox flags=(unconfined) {
+/etc/apparmor.d/steam:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/steam:profile steam /usr/{lib/steam/bin_steam.sh,games/steam} flags=(unconfined) {
+/etc/apparmor.d/polypane:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/polypane:profile polypane /opt/Polypane/polypane flags=(unconfined) {
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:/usr/lib/snapd/snap-confine (attach_disconnected) {
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    #include "/var/lib/snapd/apparmor/snap-confine"
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    /usr/lib/snapd/snap-confine mr,
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    # UC18 and newer where the /usr/lib/snapd/snap-confine inside the 
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    # we will execute snap-confine via this path, and thus need to be able to
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    /etc/udev/udev.conf r,
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    # Don't allow changing profile to unconfined or profiles that start with
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    # environment as part of launching snap-confine with CAP_SYS_ADMIN. This
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    # does leave directories as configured by ld.so.preload as well as
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    # LD_PRELOAD to be set to a library which is in a directory configured by
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    # ld.so.conf, but access to those locations is mediated by this profile
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    change_profile unsafe /** -> unconf[^i]**,
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    change_profile unsafe /** -> unconfi[^n]**,
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    change_profile unsafe /** -> unconfin[^e]**,
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    change_profile unsafe /** -> unconfine[^d]**,
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    change_profile unsafe /** -> unconfined?**,
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    change_profile unsafe /** -> {u,un,unc,unco,uncon,unconf,unconfi,unconfin,unconfine},
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    # deny change_profile unsafe /** -> {unconfined,/**},
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    # NOTE: this doesn't capture the MERGED_USR configuration option so that
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    mount options=(rw bind) /snap/*/*/etc/nsswitch.conf -> /tmp/snap.rootfs_*/etc/nsswitch.conf,
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    mount options=(rw slave) -> /tmp/snap.rootfs_*/etc/nsswitch.conf,
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    # Allow snap-confine to move to the void, creating it if necessary.
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    # Allow snap-confine to read snap contexts
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    # Allow snap-confine to unmount stale mount namespaces.
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    # Allow snap-confine to read and write mount namespace information files.
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    # allow snap-confine to read /proc/1/ns/mnt
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    ptrace read peer=unconfined,
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    ptrace trace peer=unconfined,
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    ptrace (read, readby, tracedby) peer=/usr/lib/snapd/snap-confine//mount-namespace-capture-helper,
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    signal (send, receive) set=(abrt) peer=/usr/lib/snapd/snap-confine,
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    signal (send) set=(int) peer=/usr/lib/snapd/snap-confine//mount-namespace-capture-helper,
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    signal (send, receive) set=(int, alrm, exists) peer=/usr/lib/snapd/snap-confine,
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    signal (receive) set=(exists) peer=/usr/lib/snapd/snap-confine//mount-namespace-capture-helper,
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    ptrace (trace, tracedby) peer=/usr/lib/snapd/snap-confine,
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    # As a special exception allow snap-confine to write to anything in /var/lib.
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    # This code should be changed to allow delegation so that snap-confine can
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:        /usr/lib/snapd/snap-confine mr,
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:        signal (send, receive) set=(alrm) peer=/usr/lib/snapd/snap-confine//mount-namespace-capture-helper,
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:        signal (send) set=(exists) peer=/usr/lib/snapd/snap-confine,
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:        signal (send) set=(exists) peer=unconfined,
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:        signal (send, receive) set=(abrt) peer=/usr/lib/snapd/snap-confine//mount-namespace-capture-helper,
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:        #  This is the signal we get if snap-confine dies (we subscribe to it with prctl)
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:        signal (receive) set=(int) peer=/usr/lib/snapd/snap-confine,
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:        # This allows snap-confine to be killed from the outside.
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:        signal (receive) peer=unconfined,
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:        # This allows snap-confine to wait for us
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:        ptrace (read, trace, tracedby) peer=/usr/lib/snapd/snap-confine,
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    # Allow snap-confine to be killed
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    signal (receive) peer=unconfined,
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    # ...snap-confine is, conceptually, re-executing and uses snap-update-ns
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    # ...snap-confine is not, conceptually, re-executing and uses
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    # ..snap-confine is, conceptually, re-executing and uses snap-update-ns
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    # ...snap-confine is, conceptually, re-executing and uses snap-update-ns
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    # have a dedicated profile so we need to inherit snap-confine's profile.
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    # While snap-confine itself doesn't require unix rules and therefore all
+/etc/apparmor.d/usr.lib.snapd.snap-confine.real:    deny /etc/nsswitch.conf r,
+/etc/apparmor.d/usr.bin.man:  # The purpose of this profile isn't to confine man itself (that might be
+/etc/apparmor.d/usr.bin.man:  # nice in the future, but is tricky since it's quite configurable), but to
+/etc/apparmor.d/usr.bin.man:  # confine the processes it calls that parse untrusted data.
+/etc/apparmor.d/ch-checkns:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/ch-checkns:profile ch-checkns /usr/bin/ch-checkns flags=(unconfined) {
+/etc/apparmor.d/busybox:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/busybox:profile busybox /usr/bin/busybox flags=(unconfined) {
+/etc/apparmor.d/vivaldi-bin:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/vivaldi-bin:profile vivaldi-bin /opt/vivaldi/vivaldi-bin flags=(unconfined) {
+/etc/apparmor.d/rpm:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/rpm:profile rpm /usr/bin/rpm flags=(unconfined) {
+/etc/apparmor.d/cam:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/cam:profile cam /usr/bin/cam flags=(unconfined) {
+/etc/apparmor.d/trinity:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/trinity:profile trinity /usr/bin/trinity flags=(unconfined) {
+/etc/apparmor.d/usr.lib.libreoffice.program.senddoc:  /usr/share/libreoffice/share/config/* r,
+/etc/apparmor.d/usr.lib.libreoffice.program.senddoc:  owner @{HOME}/.config/libreoffice{,dev}/?/user/uno_packages/cache/log.txt rw,
+/etc/apparmor.d/podman:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/podman:profile podman /usr/bin/podman flags=(unconfined) {
+/etc/apparmor.d/notepadqq:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/notepadqq:profile notepadqq /{{usr/bin,etc/alternatives}/notepadqq,usr/lib/notepadqq/notepadqq.sh} flags=(unconfined) {
+/etc/apparmor.d/opera:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/opera:profile opera /usr/lib/@{multiarch}/opera/opera flags=(unconfined) {
+/etc/apparmor.d/lsb_release:# other profiles. We want to confine the lsb_release(1) utility when it
+/etc/apparmor.d/lsb_release:# is invoked from other confined applications, but not when it is used
+/etc/apparmor.d/lsb_release:# in regular (unconfined) shell scripts or run directly by the user.
+/etc/apparmor.d/lsb_release:  /usr/include/python*/pyconfig.h r,
+/etc/apparmor.d/brave:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/brave:profile brave /opt/brave.com/brave/brave flags=(unconfined) {
+/etc/apparmor.d/stress-ng:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/stress-ng:profile stress-ng /usr/bin/stress-ng flags=(unconfined) {
+/etc/apparmor.d/signal-desktop:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/signal-desktop:profile signal-desktop /opt/Signal/signal-desktop flags=(unconfined) {
+/etc/apparmor.d/obsidian:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/obsidian:profile obsidian /opt/Obsidian/obsidian flags=(unconfined) {
+/etc/apparmor.d/wpcom:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/wpcom:profile wpcom /opt/WordPress.com/wpcom flags=(unconfined) {
+/etc/apparmor.d/buildah:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/buildah:profile buildah /usr/bin/buildah flags=(unconfined) {
+/etc/apparmor.d/sbuild-hold:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/sbuild-hold:profile sbuild-hold /usr/bin/sbuild-hold flags=(unconfined) {
+/etc/apparmor.d/devhelp:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/devhelp:profile devhelp /usr/bin/devhelp flags=(unconfined) {
+/etc/apparmor.d/firefox:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/firefox:profile firefox /usr/lib/firefox{,-esr,-beta,-devedition,-nightly}/firefox{,-esr,-bin} flags=(unconfined) {
+/etc/apparmor.d/runc:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/runc:profile runc /usr/sbin/runc flags=(unconfined) {
+/etc/apparmor.d/usr.sbin.cupsd:  deny signal (send) set=("term") peer=unconfined,
+/etc/apparmor.d/usr.sbin.cupsd:  /etc/gai.conf r,
+/etc/apparmor.d/usr.sbin.cupsd:  /etc/pnm2ppa.conf r,
+/etc/apparmor.d/usr.sbin.cupsd:  # backends which come with CUPS can be confined
+/etc/apparmor.d/usr.sbin.cupsd:  /etc/krb5.conf r,
+/etc/apparmor.d/usr.sbin.cupsd:  deny /etc/krb5.conf w,
+/etc/apparmor.d/usr.sbin.cupsd:  deny /etc/udev/udev.conf r,
+/etc/apparmor.d/usr.sbin.cupsd:  /etc/cups/cups-pdf.conf r,
+/etc/apparmor.d/usr.sbin.cupsd:  # setting in cups-pdf.conf (Debian#940578)
+/etc/apparmor.d/github-desktop:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/github-desktop:profile github-desktop /usr/lib/github-desktop/github-desktop flags=(unconfined) {
+/etc/apparmor.d/abstractions/user-manpages:  # perhaps your configuration has users elsewhere, or you don't wish
+/etc/apparmor.d/abstractions/xdg-open:# confined application can invoke via xdg-open helper. xdg-open abstraction
+/etc/apparmor.d/abstractions/python:  # Site-wide configuration
+/etc/apparmor.d/abstractions/python:  # python build configuration and headers
+/etc/apparmor.d/abstractions/python:  /usr/include/python{2.[4-7],3.[0-9],3.1[0-9]}*/pyconfig.h r,
+/etc/apparmor.d/abstractions/xdg-desktop:  owner @{HOME}/.config/ rw,
+/etc/apparmor.d/abstractions/crypto:  # Global config of openssl
+/etc/apparmor.d/abstractions/crypto:  @{etc_ro}/gcrypt/random.conf r,
+/etc/apparmor.d/abstractions/crypto:  # Global gnutls config
+/etc/apparmor.d/abstractions/crypto:  @{etc_ro}/gnutls/config r,
+/etc/apparmor.d/abstractions/crypto:  @{etc_ro}/gnutls/pkcs11.conf r,
+/etc/apparmor.d/abstractions/opencl-nvidia:  @{sys}/devices/pci[0-9]*/**/config r,
+/etc/apparmor.d/abstractions/ubuntu-browsers.d/java:    deny /usr/bin/gconftool-2 x,
+/etc/apparmor.d/abstractions/ubuntu-browsers.d/java:    deny /usr/bin/gconftool-2 x,
+/etc/apparmor.d/abstractions/ubuntu-browsers.d/ubuntu-integration:  owner /run/user/*/dconf/user rw,
+/etc/apparmor.d/abstractions/ubuntu-browsers.d/ubuntu-integration:  /usr/bin/debconf-communicate Cxr -> sanitized_helper,
+/etc/apparmor.d/abstractions/ubuntu-browsers.d/ubuntu-integration:  owner @{HOME}/.config/libaccounts-glib/accounts.db rk,
+/etc/apparmor.d/abstractions/ubuntu-browsers.d/kde:  /usr/bin/kde4-config Cx -> sanitized_helper,
+/etc/apparmor.d/abstractions/winbind:  /etc/samba/smb.conf         r,
+/etc/apparmor.d/abstractions/winbind:  /etc/samba/dhcp.conf        r,
+/etc/apparmor.d/abstractions/gnupg:  # user configurations
+/etc/apparmor.d/abstractions/snap_browsers:  /etc/nsswitch.conf r,
+/etc/apparmor.d/abstractions/snap_browsers:  /{,snap/core/[0-9]*/,snap/snapd/[0-9]*/}usr/lib/snapd/snap-confine Pix,
+/etc/apparmor.d/abstractions/fonts:  /usr/share/{fontconfig,fonts-config,*-fonts}/conf.avail/{,**} r,
+/etc/apparmor.d/abstractions/fonts:  /var/cache/fontconfig/**              mr,
+/etc/apparmor.d/abstractions/fonts:  owner @{HOME}/.fonts.conf             r,
+/etc/apparmor.d/abstractions/fonts:  owner @{HOME}/.{,cache/}fontconfig/   rw,
+/etc/apparmor.d/abstractions/fonts:  owner @{HOME}/.{,cache/}fontconfig/** mrwkl,
+/etc/apparmor.d/abstractions/fonts:  owner @{HOME}/.fonts.conf.d/          r,
+/etc/apparmor.d/abstractions/fonts:  owner @{HOME}/.fonts.conf.d/**        r,
+/etc/apparmor.d/abstractions/fonts:  owner @{HOME}/.config/fontconfig/     r,
+/etc/apparmor.d/abstractions/fonts:  owner @{HOME}/.config/fontconfig/**   r,
+/etc/apparmor.d/abstractions/dri-common:  /usr/share/drirc.d/{,*.conf}    r,
+/etc/apparmor.d/abstractions/kerberosclient:  /etc/krb5.conf              r,
+/etc/apparmor.d/abstractions/kerberosclient:  /etc/krb5.conf.d/           r,
+/etc/apparmor.d/abstractions/kerberosclient:  /etc/krb5.conf.d/*          r,
+/etc/apparmor.d/abstractions/kerberosclient:  # config files found via strings on libs
+/etc/apparmor.d/abstractions/kerberosclient:  /etc/krb.conf               r,
+/etc/apparmor.d/abstractions/private-files-strict:  audit deny @{HOME}/.config/ w,
+/etc/apparmor.d/abstractions/private-files-strict:  audit deny @{HOME}/.config/chromium/{,**} mrwkl,
+/etc/apparmor.d/abstractions/private-files-strict:  audit deny @{HOME}/.config/evolution/{,**} mrwkl,
+/etc/apparmor.d/abstractions/freedesktop.org:  # system configuration
+/etc/apparmor.d/abstractions/freedesktop.org:  # per-user configurations
+/etc/apparmor.d/abstractions/freedesktop.org:  owner @{HOME}/.config/user-dirs.dirs  r,
+/etc/apparmor.d/abstractions/freedesktop.org:  owner @{HOME}/.config/mimeapps.list   r,
+/etc/apparmor.d/abstractions/ubuntu-helpers:# only if the process absolutely must be run (effectively) unconfined.
+/etc/apparmor.d/abstractions/ubuntu-helpers:#    and going unconfined as root is not desirable any way.
+/etc/apparmor.d/abstractions/ubuntu-helpers:#    it. This is confirmed to work with:
+/etc/apparmor.d/abstractions/mdns:  /etc/nss_mdns.conf r,
+/etc/apparmor.d/abstractions/dovecot-common:  owner @{run}/dovecot/config rw,
+/etc/apparmor.d/abstractions/ibus:  owner @{HOME}/.config/ibus/ r,
+/etc/apparmor.d/abstractions/ibus:  owner @{HOME}/.config/ibus/bus/ rw,
+/etc/apparmor.d/abstractions/ibus:  owner @{HOME}/.config/ibus/bus/* rw,
+/etc/apparmor.d/abstractions/qt5:  owner @{HOME}/.config/QtProject/qtlogging.ini r,
+/etc/apparmor.d/abstractions/qt5:  owner @{HOME}/.config/QtProject.conf r, # common settings for QFileDialog, etc (application might need write access)
+/etc/apparmor.d/abstractions/trash:  owner @{HOME}/.config/trashrc rw,
+/etc/apparmor.d/abstractions/trash:  owner @{HOME}/.config/trashrc.lock rwk,
+/etc/apparmor.d/abstractions/trash:  owner @{HOME}/.config/#[0-9]*[0-9] rwk,
+/etc/apparmor.d/abstractions/trash:  owner @{HOME}/.config/trashrc.* rwl -> @{HOME}/.config/#[0-9]*[0-9],
+/etc/apparmor.d/abstractions/authentication:  # databases containing passwords, PAM configuration files, PAM libraries
+/etc/apparmor.d/abstractions/authentication:  @{etc_ro}/pwdb.conf              r,
+/etc/apparmor.d/abstractions/authentication:  @{etc_ro}/gss/mech.d/*.conf      r,
+/etc/apparmor.d/abstractions/authentication:  # p11-kit (PKCS#11 modules configuration)
+/etc/apparmor.d/abstractions/enchant:  owner @{HOME}/.config/enchant/                   rw,
+/etc/apparmor.d/abstractions/enchant:  owner @{HOME}/.config/enchant/*                  rwk,
+/etc/apparmor.d/abstractions/private-files:  audit deny @{HOME}/.config/ w,
+/etc/apparmor.d/abstractions/private-files:  audit deny @{HOME}/.config/autostart/{,**} wl,
+/etc/apparmor.d/abstractions/private-files:  audit deny @{HOME}/.config/upstart/{,**} wl,
+/etc/apparmor.d/abstractions/exo-open:# confined application can invoke via exo-open helper.
+/etc/apparmor.d/abstractions/exo-open:# portability across desktop environments, unless you are sure that confined
+/etc/apparmor.d/abstractions/exo-open:  owner @{HOME}/.config/xfce4/helpers.rc r,
+/etc/apparmor.d/abstractions/opencl-intel:  @{sys}/devices/pci[0-9]*/**/{class,config,resource,revision} r, # libcl.so -> libdrm_intel.so -> libpciaccess.so (move to dri-enumerate ?)
+/etc/apparmor.d/abstractions/gnome:  # per-user gtk configuration
+/etc/apparmor.d/abstractions/gnome:  owner @{HOME}/.config/gtk-3.0/        w,
+/etc/apparmor.d/abstractions/gnome:  owner @{HOME}/.config/gtk-3.0/*       r,
+/etc/apparmor.d/abstractions/gnome:  owner @{HOME}/.config/gtk-2.0/                    w,
+/etc/apparmor.d/abstractions/gnome:  owner @{HOME}/.config/gtk-2.0/**                  r,
+/etc/apparmor.d/abstractions/gnome:  owner @{HOME}/.config/gtk-2.0/gtkfilechooser.ini* rw,
+/etc/apparmor.d/abstractions/gnome:  owner @{HOME}/.gconfd/lock/*                      r,
+/etc/apparmor.d/abstractions/kde-open5:# confined application can invoke via kde-open5 helper.
+/etc/apparmor.d/abstractions/kde-open5:# portability across desktop environments, unless you are sure that confined
+/etc/apparmor.d/abstractions/kde-open5:  /usr/share/*fonts*/conf.avail/*.conf r, # for openSUSE, when showing error message box
+/etc/apparmor.d/abstractions/kde-language-write:  owner @{HOME}/.config/#[0-9]* rw,
+/etc/apparmor.d/abstractions/kde-language-write:  owner @{HOME}/.config/klanguageoverridesrc rw,
+/etc/apparmor.d/abstractions/kde-language-write:  owner @{HOME}/.config/klanguageoverridesrc.?????? rwl -> @{HOME}/.config/#[0-9]*,
+/etc/apparmor.d/abstractions/kde-language-write:  owner @{HOME}/.config/klanguageoverridesrc.lock rwk,
+/etc/apparmor.d/abstractions/svn-repositories:  /srv/svn/**/conf/* r,
+/etc/apparmor.d/abstractions/ldapclient:  /etc/ldap.conf            r,
+/etc/apparmor.d/abstractions/ldapclient:  # SASL plugins and config
+/etc/apparmor.d/abstractions/mesa:  @{sys}/devices/pci[0-9]*/**/{revision,config} r,
+/etc/apparmor.d/abstractions/audio:/etc/asound.conf r,
+/etc/apparmor.d/abstractions/audio:/etc/esound/esd.conf r,
+/etc/apparmor.d/abstractions/audio:/etc/libao.conf r,
+/etc/apparmor.d/abstractions/audio:owner @{HOME}/.config/pulse/*.conf r,
+/etc/apparmor.d/abstractions/audio:owner @{HOME}/.config/pulse/client.conf.d/{,*.conf} r,
+/etc/apparmor.d/abstractions/audio:owner @{HOME}/.config/pulse/cookie rwk,
+/etc/apparmor.d/abstractions/audio:/etc/alsa/conf.d/{,*} r,
+/etc/apparmor.d/abstractions/audio:/etc/openal/alsoft.conf r,
+/etc/apparmor.d/abstractions/audio:/usr/share/pipewire/client{,-rt}.conf r,
+/etc/apparmor.d/abstractions/kde-globals-write:  owner @{HOME}/.config/#[0-9]* rw,
+/etc/apparmor.d/abstractions/kde-globals-write:  owner @{HOME}/.config/kdeglobals rw,
+/etc/apparmor.d/abstractions/kde-globals-write:  owner @{HOME}/.config/kdeglobals.?????? rwl -> @{HOME}/.config/#[0-9]*,
+/etc/apparmor.d/abstractions/kde-globals-write:  owner @{HOME}/.config/kdeglobals.lock rwk,
+/etc/apparmor.d/abstractions/p11-kit:  /etc/pkcs11/pkcs11.conf r,
+/etc/apparmor.d/abstractions/p11-kit:  # p11-kit also supports reading user configuration from ~/.pkcs11 depending
+/etc/apparmor.d/abstractions/p11-kit:  # on how /etc/pkcs11/pkcs11.conf is configured. This should generally not be
+/etc/apparmor.d/abstractions/gvfs-open:# confined application can invoke via gvfs-open helper.
+/etc/apparmor.d/abstractions/gvfs-open:# portability across desktop environments, unless you are sure that confined
+/etc/apparmor.d/abstractions/fcitx-strict:  owner @{HOME}/.config/fcitx/dbus/* r,
+/etc/apparmor.d/abstractions/gtk:  /etc/gtk-{3,4}.0/*.conf r,
+/etc/apparmor.d/abstractions/gtk:  owner @{HOME}/.config/gtkrc r,
+/etc/apparmor.d/abstractions/gtk:  owner @{HOME}/.config/gtkrc-2.0 r,
+/etc/apparmor.d/abstractions/gtk:  owner @{HOME}/.config/gtk-{3,4}.0/ rw,
+/etc/apparmor.d/abstractions/gtk:  owner @{HOME}/.config/gtk-{3,4}.0/settings.ini r,
+/etc/apparmor.d/abstractions/gtk:  owner @{HOME}/.config/gtk-{3,4}.0/bookmarks r,
+/etc/apparmor.d/abstractions/gtk:  owner @{HOME}/.config/gtk-{3,4}.0/gtk.css r,
+/etc/apparmor.d/abstractions/gtk:  owner @{HOME}/.config/gtk-{3,4}.0/colors.css r,
+/etc/apparmor.d/abstractions/gtk:  owner @{HOME}/.config/gtk-{3,4}.0/servers r,
+/etc/apparmor.d/abstractions/gtk:  owner @{HOME}/.config/gtk-2.0/ rw,
+/etc/apparmor.d/abstractions/gtk:  owner @{HOME}/.config/gtk-2.0/gtkfilechooser.ini* rw,
+/etc/apparmor.d/abstractions/dconf:# permissions for querying dconf settings; granting write access should
+/etc/apparmor.d/abstractions/dconf:  /etc/dconf/** r,
+/etc/apparmor.d/abstractions/dconf:  owner @{run}/user/*/dconf/user r,
+/etc/apparmor.d/abstractions/dconf:  owner @{HOME}/.config/dconf/user r,
+/etc/apparmor.d/abstractions/dconf:  include if exists <abstractions/dconf.d>
+/etc/apparmor.d/abstractions/nameservice:  @{etc_ro}/host.conf      r,
+/etc/apparmor.d/abstractions/nameservice:  @{etc_ro}/nsswitch.conf  r,
+/etc/apparmor.d/abstractions/nameservice:  @{etc_ro}/gai.conf       r,
+/etc/apparmor.d/abstractions/nameservice:  # On systems with authselect installed, /etc/nsswitch.conf is a symlink to /etc/authselect/nsswitch.conf
+/etc/apparmor.d/abstractions/nameservice:  @{etc_ro}/authselect/nsswitch.conf r,
+/etc/apparmor.d/abstractions/nameservice:  @{etc_ro}/netconfig r,
+/etc/apparmor.d/abstractions/nameservice:  @{etc_ro}/resolv.conf r,
+/etc/apparmor.d/abstractions/nameservice:  # On systems where /etc/resolv.conf is managed programmatically, it is
+/etc/apparmor.d/abstractions/nameservice:  # a symlink to @{run}/(whatever program is managing it)/resolv.conf.
+/etc/apparmor.d/abstractions/nameservice:  @{run}/{resolvconf,NetworkManager,systemd/resolve,connman,netconfig}/resolv.conf r,
+/etc/apparmor.d/abstractions/nameservice:  @{etc_ro}/resolvconf/run/resolv.conf  r,
+/etc/apparmor.d/abstractions/nameservice:  @{run}/systemd/resolve/stub-resolv.conf r,
+/etc/apparmor.d/abstractions/nameservice:  /mnt/wsl/resolv.conf r,
+/etc/apparmor.d/abstractions/bash:  # system-wide bash configuration
+/etc/apparmor.d/abstractions/bash:  # bash relies on system-wide readline configuration
+/etc/apparmor.d/abstractions/cups-client:  # discoverable system configuration for non-local cupsd
+/etc/apparmor.d/abstractions/cups-client:  /etc/cups/client.conf   r,
+/etc/apparmor.d/abstractions/cups-client:  # client should be able to read user-specified cups configuration
+/etc/apparmor.d/abstractions/cups-client:  owner @{HOME}/.cups/client.conf r,
+/etc/apparmor.d/abstractions/xad:  /etc/opt/novell/xad/krb5.conf r,
+/etc/apparmor.d/abstractions/kde:/etc/xdg/Trolltech.conf r,
+/etc/apparmor.d/abstractions/kde:owner @{HOME}/.kde{,4}/share/config/kdeglobals rw,
+/etc/apparmor.d/abstractions/kde:owner @{HOME}/.kde{,4}/share/config/*.lock rwl,
+/etc/apparmor.d/abstractions/kde:owner @{HOME}/.config/Trolltech.conf rwk,
+/etc/apparmor.d/abstractions/kde:owner @{HOME}/.config/baloofilerc r, # indexing options (excludes, etc), used by KFileWidget
+/etc/apparmor.d/abstractions/kde:owner @{HOME}/.config/dolphinrc r, # settings used by KFileWidget
+/etc/apparmor.d/abstractions/kde:owner @{HOME}/.config/kde.org/libphonon.conf r, # for KNotifications::sendEvent()
+/etc/apparmor.d/abstractions/kde:owner @{HOME}/.config/kdedefaults/kdeglobals r, # QPlatformThemeFactory::create() -> KDEPlasmaPlatformTheme.so
+/etc/apparmor.d/abstractions/kde:owner @{HOME}/.config/kdedefaults/kwinrc r, # QStyleFactory::create() -> qt5/plugins/styles/breeze.so
+/etc/apparmor.d/abstractions/kde:owner @{HOME}/.config/kdeglobals r, # global settings, used by Breeze style, etc.
+/etc/apparmor.d/abstractions/kde:owner @{HOME}/.config/klanguageoverridesrc r, # per-application languages, for KDEPrivate::initializeLanguages() from libKF5XmlGui.so
+/etc/apparmor.d/abstractions/kde:owner @{HOME}/.config/kwinrc r, # QStyleFactory::create() -> qt5/plugins/styles/breeze.so
+/etc/apparmor.d/abstractions/kde:owner @{HOME}/.config/trashrc r, # Used by KFileWidget
+/etc/apparmor.d/abstractions/gio-open:# confined application can invoke via gio helper.
+/etc/apparmor.d/abstractions/gio-open:# portability across desktop environments, unless you are sure that confined
+/etc/apparmor.d/abstractions/gio-open:  owner @{HOME}/.config/mimeapps.list r,
+/etc/apparmor.d/abstractions/apache2-common:  # Allow unconfined processes to send us signals by default
+/etc/apparmor.d/abstractions/apache2-common:  signal (receive) peer=unconfined,
+/etc/apparmor.d/abstractions/ubuntu-media-players:  /etc/mplayerplug-in.conf r,
+/etc/apparmor.d/abstractions/nvidia:  # configuration queries
+/etc/apparmor.d/abstractions/nvidia:  # libvdpau config file for nvidia workarounds
+/etc/apparmor.d/abstractions/base:  @{etc_ro}/ld.so.conf                r,
+/etc/apparmor.d/abstractions/base:  @{etc_ro}/ld.so.conf.d/{,*.conf}    r,
+/etc/apparmor.d/abstractions/base:  # glibc's sysconf(3) routine to determine free memory, etc
+/etc/apparmor.d/abstractions/base:  # Allow unconfined processes to send us signals by default
+/etc/apparmor.d/abstractions/base:  signal (receive) peer=unconfined,
+/etc/apparmor.d/abstractions/base:  # Allow unconfined processes to us via unix sockets
+/etc/apparmor.d/abstractions/base:  unix (receive) peer=(label=unconfined),
+/etc/apparmor.d/abstractions/qt5-settings-write:  owner @{HOME}/.config/#[0-9]*[0-9] rw,
+/etc/apparmor.d/abstractions/qt5-settings-write:  owner @{HOME}/.config/QtProject.conf rwl -> @{HOME}/.config/#[0-9]*[0-9],
+/etc/apparmor.d/abstractions/qt5-settings-write:  # for temporary files like QtProject.conf.Aqrgeb
+/etc/apparmor.d/abstractions/qt5-settings-write:  owner @{HOME}/.config/QtProject.conf.?????? rwl -> @{HOME}/.config/#[0-9]*[0-9],
+/etc/apparmor.d/abstractions/qt5-settings-write:  owner @{HOME}/.config/QtProject.conf.lock rwk,
+/etc/apparmor.d/abstractions/php:  # shared snippets for config files
+/etc/apparmor.d/sbuild-upgrade:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/sbuild-upgrade:profile sbuild-upgrade /usr/bin/sbuild-upgrade flags=(unconfined) {
+/etc/apparmor.d/uwsgi-core:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/uwsgi-core:profile uwsgi-core /usr/bin/uwsgi-core flags=(unconfined) {
+/etc/apparmor.d/sbuild-destroychroot:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/sbuild-destroychroot:profile sbuild-destroychroot /usr/sbin/sbuild-destroychroot flags=(unconfined) {
+/etc/apparmor.d/usr.bin.redshift:  owner @{HOME}/.config/redshift.conf r,
+/etc/apparmor.d/sbuild:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/sbuild:profile sbuild /usr/bin/sbuild flags=(unconfined) {
+/etc/apparmor.d/sbuild-unhold:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/sbuild-unhold:profile sbuild-unhold /usr/bin/sbuild-unhold flags=(unconfined) {
+/etc/apparmor.d/ch-run:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/ch-run:profile ch-run /usr/bin/ch-run flags=(unconfined) {
+/etc/apparmor.d/sbuild-update:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/sbuild-update:profile sbuild-update /usr/bin/sbuild-update flags=(unconfined) {
+/etc/apparmor.d/sbuild-adduser:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/sbuild-adduser:profile sbuild-adduser /usr/sbin/sbuild-adduser flags=(unconfined) {
+/etc/apparmor.d/lxc-stop:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/lxc-stop:profile lxc-stop /usr/bin/lxc-stop flags=(unconfined) {
+/etc/apparmor.d/qmapshack:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/qmapshack:profile qmapshack /usr/bin/qmapshack flags=(unconfined) {
+/etc/apparmor.d/lxc-execute:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/lxc-execute:profile lxc-execute /usr/bin/lxc-execute flags=(unconfined) {
+/etc/apparmor.d/slack:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/slack:profile slack /usr/lib/slack/slack flags=(unconfined) {
+/etc/apparmor.d/ubuntu_pro_esm_cache:  /etc/ubuntu-advantage/uaclient.conf r,
+/etc/apparmor.d/ubuntu_pro_esm_cache:    ptrace read peer=unconfined,
+/etc/apparmor.d/ubuntu_pro_esm_cache:    # apt-config command needs these
+/etc/apparmor.d/ubuntu_pro_esm_cache:    ptrace read peer=unconfined,
+/etc/apparmor.d/ubuntu_pro_esm_cache:    ptrace read peer=unconfined,
+/etc/apparmor.d/lxc-unshare:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/lxc-unshare:profile lxc-unshare /usr/bin/lxc-unshare flags=(unconfined) {
+/etc/apparmor.d/geary:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/geary:profile geary /usr/bin/geary flags=(unconfined) {
+/etc/apparmor.d/vdens:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/vdens:profile vdens /usr/bin/vdens flags=(unconfined) {
+/etc/apparmor.d/lxc-create:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/lxc-create:profile lxc-create /usr/bin/lxc-create flags=(unconfined) {
+/etc/apparmor.d/tunables/home.d/ubuntu:# $ sudo dpkg-reconfigure apparmor
+/etc/apparmor.d/tunables/kernelvars:# current user of the confined application.
+/etc/apparmor.d/tunables/etc:# @{etc_ro} contains a space-separated list of the system configuration directories.
+/etc/apparmor.d/tunables/etc:# with the goal of having only user-modified config files in /etc/, directories
+/etc/apparmor.d/tunables/etc:# like /usr/etc/ get introduced for storing the default config.
+/etc/apparmor.d/tunables/etc:# @{etc_ro} contains directories with configuration files, including read-only directories.
+/etc/apparmor.d/tunables/etc:# @{etc_rw} contains directories where writing to configuration files is allowed.
+/etc/apparmor.d/tunables/etc:# Only use @{etc_rw} if the profile allows writing to a configuration file.
+/etc/apparmor.d/goldendict:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/goldendict:profile goldendict /usr/bin/goldendict flags=(unconfined) {
+/etc/apparmor.d/evolution:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/evolution:profile evolution /usr/bin/evolution flags=(unconfined) {
+/etc/apparmor.d/abi/kernel-5.4-outoftree-network:caps {mask {chown dac_override dac_read_search fowner fsetid kill setgid setuid setpcap linux_immutable net_bind_service net_broadcast net_admin net_raw ipc_lock ipc_owner sys_module sys_rawio sys_chroot sys_ptrace sys_pacct sys_admin sys_boot sys_nice sys_resource sys_time sys_tty_config mknod lease audit_write audit_control setfcap mac_override mac_admin syslog wake_alarm block_suspend audit_read
+/etc/apparmor.d/abi/kernel-5.4-vanilla:caps {mask {chown dac_override dac_read_search fowner fsetid kill setgid setuid setpcap linux_immutable net_bind_service net_broadcast net_admin net_raw ipc_lock ipc_owner sys_module sys_rawio sys_chroot sys_ptrace sys_pacct sys_admin sys_boot sys_nice sys_resource sys_time sys_tty_config mknod lease audit_write audit_control setfcap mac_override mac_admin syslog wake_alarm block_suspend audit_read
+/etc/apparmor.d/abi/4.0:caps {mask {chown dac_override dac_read_search fowner fsetid kill setgid setuid setpcap linux_immutable net_bind_service net_broadcast net_admin net_raw ipc_lock ipc_owner sys_module sys_rawio sys_chroot sys_ptrace sys_pacct sys_admin sys_boot sys_nice sys_resource sys_time sys_tty_config mknod lease audit_write audit_control setfcap mac_override mac_admin syslog wake_alarm block_suspend audit_read perfmon bpf checkpoint_restore
+/etc/apparmor.d/abi/3.0:caps {mask {chown dac_override dac_read_search fowner fsetid kill setgid setuid setpcap linux_immutable net_bind_service net_broadcast net_admin net_raw ipc_lock ipc_owner sys_module sys_rawio sys_chroot sys_ptrace sys_pacct sys_admin sys_boot sys_nice sys_resource sys_time sys_tty_config mknod lease audit_write audit_control setfcap mac_override mac_admin syslog wake_alarm block_suspend audit_read perfmon bpf
+/etc/apparmor.d/usr.sbin.rsyslogd:  capability sys_tty_config,
+/etc/apparmor.d/usr.sbin.rsyslogd:  # rsyslog configuration
+/etc/apparmor.d/usr.sbin.rsyslogd:  /etc/rsyslog.conf r,
+/etc/apparmor.d/keybase:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/keybase:profile keybase /opt/keybase/Keybase flags=(unconfined) {
+/etc/apparmor.d/sbuild-checkpackages:# application a name instead of having the label "unconfined"
+/etc/apparmor.d/sbuild-checkpackages:profile sbuild-checkpackages /usr/bin/sbuild-checkpackages flags=(unconfined) {
+/etc/ImageMagick-6/mime.xml:  <mime type="application/x-desktop" description="desktop configuration file" data-type="string" offset="0:32" magic="[Desktop Entry]" priority="50" />
+/etc/ImageMagick-6/mime.xml:  <mime type="application/x-desktop" description="desktop configuration file" data-type="string" offset="0" magic="[Desktop Action" priority="50" />
+/etc/ImageMagick-6/mime.xml:  <mime type="application/x-desktop" description="desktop configuration file" data-type="string" offset="0" magic="[KDE Desktop Entry]" priority="50" />
+/etc/ImageMagick-6/mime.xml:  <mime type="application/x-desktop" description="desktop configuration file" data-type="string" offset="0" magic="# Config File" priority="50" />
+/etc/ImageMagick-6/mime.xml:  <mime type="application/x-desktop" description="desktop configuration file" data-type="string" offset="0" magic="# KDE Config File" priority="50" />
+/etc/ImageMagick-6/mime.xml:  <mime type="application/x-desktop" description="desktop configuration file" priority="100" pattern="*.desktop" />
+/etc/ImageMagick-6/mime.xml:  <mime type="application/x-desktop" description="desktop configuration file" priority="100" pattern="*.kdelnk" />
+/etc/ImageMagick-6/mime.xml:  <mime type="text/x-gtkrc" description="GTK+ configuration" priority="100" pattern="gtkrc" />
+/etc/ImageMagick-6/mime.xml:  <mime type="text/x-gtkrc" description="GTK+ configuration" priority="100" pattern=".gtkrc" />
+/etc/ImageMagick-6/type-urw-base35.xml:  ImageMagick URW-base35 font configuration.
+/etc/ImageMagick-6/type-ghostscript.xml:  ImageMagick Ghostscript font configuration.
+/etc/ImageMagick-6/coder.xml:  format and its respective coder module is defined in this configuration
+/etc/ImageMagick-6/policy-secure.xml:  writing, confines on image sequences, the utmost permissible duration of
+/etc/ImageMagick-6/type-windows.xml:  ImageMagick Windows font configuration.
+/etc/ImageMagick-6/type-apple.xml:  ImageMagick Apple font configuration.
+/etc/ImageMagick-6/log.xml:    configure
+/etc/ImageMagick-6/type.xml:  ImageMagick font configuration.
+/etc/ImageMagick-6/type-dejavu.xml:  ImageMagick DejaVU font configuration.
+/etc/gtk-2.0/im-multipress.conf:# Example configuration file for the GTK+ Multipress Input Method
+/etc/gtk-2.0/im-multipress.conf:# The example configuration below imitates the behavior of a standard mobile
+/etc/systemd/user.conf:# Entries in this file show the compile time defaults. Local configuration
+/etc/systemd/user.conf:# the /etc/systemd/user.conf.d/ directory. The latter is generally recommended.
+/etc/systemd/user.conf:# Defaults can be restored by simply deleting the main configuration file and
+/etc/systemd/user.conf:# Use 'systemd-analyze cat-config systemd/user.conf' to display the full config.
+/etc/systemd/user.conf:# See systemd-user.conf(5) for details.
+/etc/systemd/system.conf:# Entries in this file show the compile time defaults. Local configuration
+/etc/systemd/system.conf:# /etc/systemd/system.conf.d/ directory. The latter is generally recommended.
+/etc/systemd/system.conf:# Defaults can be restored by simply deleting the main configuration file and
+/etc/systemd/system.conf:# Use 'systemd-analyze cat-config systemd/system.conf' to display the full config.
+/etc/systemd/system.conf:# See systemd-system.conf(5) for details.
+/etc/systemd/journald.conf:# Entries in this file show the compile time defaults. Local configuration
+/etc/systemd/journald.conf:# the /etc/systemd/journald.conf.d/ directory. The latter is generally
+/etc/systemd/journald.conf:# configuration file and all drop-ins located in /etc/.
+/etc/systemd/journald.conf:# Use 'systemd-analyze cat-config systemd/journald.conf' to display the full config.
+/etc/systemd/journald.conf:# See journald.conf(5) for details.
+/etc/systemd/sleep.conf:# Entries in this file show the compile time defaults. Local configuration
+/etc/systemd/sleep.conf:# the /etc/systemd/sleep.conf.d/ directory. The latter is generally
+/etc/systemd/sleep.conf:# configuration file and all drop-ins located in /etc/.
+/etc/systemd/sleep.conf:# Use 'systemd-analyze cat-config systemd/sleep.conf' to display the full config.
+/etc/systemd/sleep.conf:# See systemd-sleep.conf(5) for details.
+/etc/systemd/timesyncd.conf:# Entries in this file show the compile time defaults. Local configuration
+/etc/systemd/timesyncd.conf:# the /etc/systemd/timesyncd.conf.d/ directory. The latter is generally
+/etc/systemd/timesyncd.conf:# configuration file and all drop-ins located in /etc/.
+/etc/systemd/timesyncd.conf:# Use 'systemd-analyze cat-config systemd/timesyncd.conf' to display the full config.
+/etc/systemd/timesyncd.conf:# See timesyncd.conf(5) for details.
+/etc/systemd/pstore.conf:# Entries in this file show the compile time defaults. Local configuration
+/etc/systemd/pstore.conf:# the /etc/systemd/pstore.conf.d/ directory. The latter is generally
+/etc/systemd/pstore.conf:# configuration file and all drop-ins located in /etc/.
+/etc/systemd/pstore.conf:# Use 'systemd-analyze cat-config systemd/pstore.conf' to display the full config.
+/etc/systemd/pstore.conf:# See pstore.conf(5) for details.
+/etc/systemd/networkd.conf:# Entries in this file show the compile time defaults. Local configuration
+/etc/systemd/networkd.conf:# the /etc/systemd/networkd.conf.d/ directory. The latter is generally
+/etc/systemd/networkd.conf:# configuration file and all drop-ins located in /etc/.
+/etc/systemd/networkd.conf:# Use 'systemd-analyze cat-config systemd/networkd.conf' to display the full config.
+/etc/systemd/networkd.conf:# See networkd.conf(5) for details.
+/etc/systemd/resolved.conf:# Entries in this file show the compile time defaults. Local configuration
+/etc/systemd/resolved.conf:# the /etc/systemd/resolved.conf.d/ directory. The latter is generally
+/etc/systemd/resolved.conf:# configuration file and all drop-ins located in /etc/.
+/etc/systemd/resolved.conf:# Use 'systemd-analyze cat-config systemd/resolved.conf' to display the full config.
+/etc/systemd/resolved.conf:# See resolved.conf(5) for details.
+/etc/systemd/logind.conf:# Entries in this file show the compile time defaults. Local configuration
+/etc/systemd/logind.conf:# the /etc/systemd/logind.conf.d/ directory. The latter is generally
+/etc/systemd/logind.conf:# configuration file and all drop-ins located in /etc/.
+/etc/systemd/logind.conf:# Use 'systemd-analyze cat-config systemd/logind.conf' to display the full config.
+/etc/systemd/logind.conf:# See logind.conf(5) for details.
+/etc/gtk-3.0/im-multipress.conf:# Example configuration file for the GTK+ Multipress Input Method
+/etc/gtk-3.0/im-multipress.conf:# The example configuration below imitates the behavior of a standard mobile
+/etc/iproute2/rt_tables.d/README:Each file in this directory is an rt_tables configuration file. iproute2
+/etc/iproute2/rt_tables.d/README:commands scan this directory processing all files that end in '.conf'.
+/etc/iproute2/rt_protos.d/README:Each file in this directory is an rt_protos configuration file. iproute2
+/etc/iproute2/rt_protos.d/README:commands scan this directory processing all files that end in '.conf'.
+/etc/network/if-pre-up.d/wireless-tools:IWCONFIG=/sbin/iwconfig
+/etc/network/if-pre-up.d/wireless-tools:	wireless-tools|iwconfig)
+/etc/network/if-pre-up.d/wireless-tools:# - Some drivers want everything to be configured before bringing the interface up
+/etc/network/if-pre-up.d/wireless-tools:# - Some drivers want everything to be configured after bringing the interface up
+/etc/network/if-pre-up.d/wireless-tools:# and remember which ones failed to be configured properly.
+/etc/network/if-post-down.d/wireless-tools:IWCONFIG=/usr/sbin/iwconfig
+/etc/network/if-post-down.d/wireless-tools:	wireless-tools|iwconfig)
+/etc/pam.conf:# /etc/pam.conf								     #
+/etc/perl/Net/libnet.cfg:# Prior to perl 5.8.8-7, libnet was a seperate package with a debconf
+/etc/perl/Net/libnet.cfg:# configuration managed config in /etc/libnet.cfg which is used if
+/etc/profile.d/bash_completion.sh:        [ -r "${XDG_CONFIG_HOME:-$HOME/.config}/bash_completion" ] &&
+/etc/profile.d/bash_completion.sh:            . "${XDG_CONFIG_HOME:-$HOME/.config}/bash_completion"
+/etc/.resolv.conf.systemd-resolved.bak:# This is a dynamic resolv.conf file for connecting local clients directly to
+/etc/.resolv.conf.systemd-resolved.bak:# all known uplink DNS servers. This file lists all configured search domains.
+/etc/.resolv.conf.systemd-resolved.bak:# symlink at /etc/resolv.conf. To manage man:resolv.conf(5) in a different way,
+/etc/.resolv.conf.systemd-resolved.bak:# operation for /etc/resolv.conf.
+/etc/gai.conf:# So far only configuration for the destination address sorting is needed.
+/etc/fonts/conf.d/README:conf.d/README
+/etc/fonts/conf.d/README:Each file in this directory is a fontconfig configuration file.  Fontconfig
+/etc/fonts/conf.d/README:scans this directory, loading all files of the form [0-9][0-9]*.conf.
+/etc/fonts/conf.d/README:These files are normally installed in /usr/share/fontconfig/conf.avail
+/etc/fonts/conf.d/README:The files are loaded in numeric order, the structure of the configuration
+/etc/fonts/conf.d/README: 50 through 59		alternate config file loading
+/etc/fonts/conf.d/65-khmer.conf:<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+/etc/fonts/conf.d/65-khmer.conf:<fontconfig>
+/etc/fonts/conf.d/65-khmer.conf:</fontconfig>
+/etc/fonts/conf.avail/65-0-smc-meera.conf:<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+/etc/fonts/conf.avail/65-0-smc-meera.conf:<fontconfig>
+/etc/fonts/conf.avail/65-0-smc-meera.conf:</fontconfig>
+/etc/fonts/conf.avail/66-lohit-gurmukhi.conf:<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+/etc/fonts/conf.avail/66-lohit-gurmukhi.conf:<fontconfig>
+/etc/fonts/conf.avail/66-lohit-gurmukhi.conf:</fontconfig>
+/etc/fonts/conf.avail/59-lohit-devanagari.conf:<!DOCTYPE fontconfig SYSTEM "../fonts.dtd">
+/etc/fonts/conf.avail/59-lohit-devanagari.conf:<fontconfig>
+/etc/fonts/conf.avail/59-lohit-devanagari.conf:</fontconfig>
+/etc/fonts/conf.avail/67-smc-karumbi.conf:<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+/etc/fonts/conf.avail/67-smc-karumbi.conf:<fontconfig>
+/etc/fonts/conf.avail/67-smc-karumbi.conf:</fontconfig>
+/etc/fonts/conf.avail/30-droid-noto-mono.conf:<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+/etc/fonts/conf.avail/30-droid-noto-mono.conf:<fontconfig>
+/etc/fonts/conf.avail/30-droid-noto-mono.conf:</fontconfig>
+/etc/fonts/conf.avail/65-0-fonts-orya-extra.conf:<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+/etc/fonts/conf.avail/65-0-fonts-orya-extra.conf:<fontconfig>
+/etc/fonts/conf.avail/65-0-fonts-orya-extra.conf:</fontconfig>
+/etc/fonts/conf.avail/67-lohit-malayalam.conf:<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+/etc/fonts/conf.avail/67-lohit-malayalam.conf:<fontconfig>
+/etc/fonts/conf.avail/67-lohit-malayalam.conf:</fontconfig>
+/etc/fonts/conf.avail/20-unhint-small-dejavu-sans.conf:<!DOCTYPE fontconfig SYSTEM "../fonts.dtd">
+/etc/fonts/conf.avail/20-unhint-small-dejavu-sans.conf:<fontconfig>
+/etc/fonts/conf.avail/20-unhint-small-dejavu-sans.conf:  <!--  /etc/fonts/conf.d/20-unhint-small-dejavu-sans.conf
+/etc/fonts/conf.avail/20-unhint-small-dejavu-sans.conf:</fontconfig>
+/etc/fonts/conf.avail/58-dejavu-lgc-sans.conf:<!DOCTYPE fontconfig SYSTEM "../fonts.dtd">
+/etc/fonts/conf.avail/58-dejavu-lgc-sans.conf:<!-- /etc/fonts/conf.d/58-dejavu-lgc-sans.conf
+/etc/fonts/conf.avail/58-dejavu-lgc-sans.conf:     Define aliasing and other fontconfig settings for
+/etc/fonts/conf.avail/58-dejavu-lgc-sans.conf:<fontconfig>
+/etc/fonts/conf.avail/58-dejavu-lgc-sans.conf:</fontconfig>
+/etc/fonts/conf.avail/65-0-fonts-beng-extra.conf:<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+/etc/fonts/conf.avail/65-0-fonts-beng-extra.conf:<fontconfig>
+/etc/fonts/conf.avail/65-0-fonts-beng-extra.conf:</fontconfig>
+/etc/fonts/conf.avail/65-0-fonts-pagul.conf:<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+/etc/fonts/conf.avail/65-0-fonts-pagul.conf:<fontconfig>
+/etc/fonts/conf.avail/65-0-fonts-pagul.conf:</fontconfig>
+/etc/fonts/conf.avail/66-lohit-telugu.conf:<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+/etc/fonts/conf.avail/66-lohit-telugu.conf:<fontconfig>
+/etc/fonts/conf.avail/66-lohit-telugu.conf:</fontconfig>
+/etc/fonts/conf.avail/65-0-fonts-guru-extra.conf:<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+/etc/fonts/conf.avail/65-0-fonts-guru-extra.conf:<fontconfig>
+/etc/fonts/conf.avail/65-0-fonts-guru-extra.conf:</fontconfig>
+/etc/fonts/conf.avail/67-smc-chilanka.conf:<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+/etc/fonts/conf.avail/67-smc-chilanka.conf:<fontconfig>
+/etc/fonts/conf.avail/67-smc-chilanka.conf:</fontconfig>
+/etc/fonts/conf.avail/66-lohit-bengali.conf:<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+/etc/fonts/conf.avail/66-lohit-bengali.conf:<fontconfig>
+/etc/fonts/conf.avail/66-lohit-bengali.conf:</fontconfig>
+/etc/fonts/conf.avail/67-fonts-smc-manjari.conf:<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+/etc/fonts/conf.avail/67-fonts-smc-manjari.conf:<fontconfig>
+/etc/fonts/conf.avail/67-fonts-smc-manjari.conf:</fontconfig>
+/etc/fonts/conf.avail/57-dejavu-serif.conf:<!DOCTYPE fontconfig SYSTEM "../fonts.dtd">
+/etc/fonts/conf.avail/57-dejavu-serif.conf:<!-- /etc/fonts/conf.d/57-dejavu-serif.conf
+/etc/fonts/conf.avail/57-dejavu-serif.conf:     Define aliasing and other fontconfig settings for
+/etc/fonts/conf.avail/57-dejavu-serif.conf:<fontconfig>
+/etc/fonts/conf.avail/57-dejavu-serif.conf:</fontconfig>
+/etc/fonts/conf.avail/30-droid-noto.conf:<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+/etc/fonts/conf.avail/30-droid-noto.conf:<fontconfig>
+/etc/fonts/conf.avail/30-droid-noto.conf:</fontconfig>
+/etc/fonts/conf.avail/20-unhint-small-dejavu-lgc-sans-mono.conf:<!DOCTYPE fontconfig SYSTEM "../fonts.dtd">
+/etc/fonts/conf.avail/20-unhint-small-dejavu-lgc-sans-mono.conf:<fontconfig>
+/etc/fonts/conf.avail/20-unhint-small-dejavu-lgc-sans-mono.conf:  <!--  /etc/fonts/conf.d/20-unhint-small-dejavu-lgc-sans-mono.conf
+/etc/fonts/conf.avail/20-unhint-small-dejavu-lgc-sans-mono.conf:</fontconfig>
+/etc/fonts/conf.avail/67-smc-uroob.conf:<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+/etc/fonts/conf.avail/67-smc-uroob.conf:<fontconfig>
+/etc/fonts/conf.avail/67-smc-uroob.conf:</fontconfig>
+/etc/fonts/conf.avail/65-0-fonts-gujr-extra.conf:<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+/etc/fonts/conf.avail/65-0-fonts-gujr-extra.conf:<fontconfig>
+/etc/fonts/conf.avail/65-0-fonts-gujr-extra.conf:</fontconfig>
+/etc/fonts/conf.avail/67-smc-raghumalayalamsans.conf:<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+/etc/fonts/conf.avail/67-smc-raghumalayalamsans.conf:<fontconfig>
+/etc/fonts/conf.avail/67-smc-raghumalayalamsans.conf:</fontconfig>
+/etc/fonts/conf.avail/65-droid-sans-fallback.conf:<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+/etc/fonts/conf.avail/65-droid-sans-fallback.conf:<fontconfig>
+/etc/fonts/conf.avail/65-droid-sans-fallback.conf:</fontconfig>
+/etc/fonts/conf.avail/58-dejavu-lgc-sans-mono.conf:<!DOCTYPE fontconfig SYSTEM "../fonts.dtd">
+/etc/fonts/conf.avail/58-dejavu-lgc-sans-mono.conf:<!-- /etc/fonts/conf.d/58-dejavu-lgc-sans-mono.conf
+/etc/fonts/conf.avail/58-dejavu-lgc-sans-mono.conf:     Define aliasing and other fontconfig settings for
+/etc/fonts/conf.avail/58-dejavu-lgc-sans-mono.conf:<fontconfig>
+/etc/fonts/conf.avail/58-dejavu-lgc-sans-mono.conf:</fontconfig>
+/etc/fonts/conf.avail/66-lohit-gujarati.conf:<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+/etc/fonts/conf.avail/66-lohit-gujarati.conf:<fontconfig>
+/etc/fonts/conf.avail/66-lohit-gujarati.conf:</fontconfig>
+/etc/fonts/conf.avail/65-0-fonts-deva-extra.conf:<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+/etc/fonts/conf.avail/65-0-fonts-deva-extra.conf:<fontconfig>
+/etc/fonts/conf.avail/65-0-fonts-deva-extra.conf:</fontconfig>
+/etc/fonts/conf.avail/20-unhint-small-dejavu-serif.conf:<!DOCTYPE fontconfig SYSTEM "../fonts.dtd">
+/etc/fonts/conf.avail/20-unhint-small-dejavu-serif.conf:<fontconfig>
+/etc/fonts/conf.avail/20-unhint-small-dejavu-serif.conf:  <!--  /etc/fonts/conf.d/20-unhint-small-dejavu-serif.conf
+/etc/fonts/conf.avail/20-unhint-small-dejavu-serif.conf:</fontconfig>
+/etc/fonts/conf.avail/66-lohit-assamese.conf:<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+/etc/fonts/conf.avail/66-lohit-assamese.conf:<fontconfig>
+/etc/fonts/conf.avail/66-lohit-assamese.conf:</fontconfig>
+/etc/fonts/conf.avail/20-unhint-small-dejavu-lgc-sans.conf:<!DOCTYPE fontconfig SYSTEM "../fonts.dtd">
+/etc/fonts/conf.avail/20-unhint-small-dejavu-lgc-sans.conf:<fontconfig>
+/etc/fonts/conf.avail/20-unhint-small-dejavu-lgc-sans.conf:  <!--  /etc/fonts/conf.d/20-unhint-small-dejavu-lgc-sans.conf
+/etc/fonts/conf.avail/20-unhint-small-dejavu-lgc-sans.conf:</fontconfig>
+/etc/fonts/conf.avail/67-smc-suruma.conf:<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+/etc/fonts/conf.avail/67-smc-suruma.conf:<fontconfig>
+/etc/fonts/conf.avail/67-smc-suruma.conf:</fontconfig>
+/etc/fonts/conf.avail/66-lohit-devanagari.conf:<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+/etc/fonts/conf.avail/66-lohit-devanagari.conf:<fontconfig>
+/etc/fonts/conf.avail/66-lohit-devanagari.conf:</fontconfig>
+/etc/fonts/conf.avail/58-dejavu-lgc-serif.conf:<!DOCTYPE fontconfig SYSTEM "../fonts.dtd">
+/etc/fonts/conf.avail/58-dejavu-lgc-serif.conf:<!-- /etc/fonts/conf.d/58-dejavu-lgc-serif.conf
+/etc/fonts/conf.avail/58-dejavu-lgc-serif.conf:     Define aliasing and other fontconfig settings for
+/etc/fonts/conf.avail/58-dejavu-lgc-serif.conf:<fontconfig>
+/etc/fonts/conf.avail/58-dejavu-lgc-serif.conf:</fontconfig>
+/etc/fonts/conf.avail/67-smc-keraleeyam.conf:<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+/etc/fonts/conf.avail/67-smc-keraleeyam.conf:<fontconfig>
+/etc/fonts/conf.avail/67-smc-keraleeyam.conf:</fontconfig>
+/etc/fonts/conf.avail/65-0-fonts-gubbi.conf:<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+/etc/fonts/conf.avail/65-0-fonts-gubbi.conf:<fontconfig>
+/etc/fonts/conf.avail/65-0-fonts-gubbi.conf:</fontconfig>
+/etc/fonts/conf.avail/57-dejavu-sans.conf:<!DOCTYPE fontconfig SYSTEM "../fonts.dtd">
+/etc/fonts/conf.avail/57-dejavu-sans.conf:<!-- /etc/fonts/conf.d/57-dejavu-sans.conf
+/etc/fonts/conf.avail/57-dejavu-sans.conf:     Define aliasing and other fontconfig settings for
+/etc/fonts/conf.avail/57-dejavu-sans.conf:<fontconfig>
+/etc/fonts/conf.avail/57-dejavu-sans.conf:</fontconfig>
+/etc/fonts/conf.avail/66-lohit-odia.conf:<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+/etc/fonts/conf.avail/66-lohit-odia.conf:<fontconfig>
+/etc/fonts/conf.avail/66-lohit-odia.conf:</fontconfig>
+/etc/fonts/conf.avail/66-lohit-tamil-classical.conf:<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+/etc/fonts/conf.avail/66-lohit-tamil-classical.conf:<fontconfig>
+/etc/fonts/conf.avail/66-lohit-tamil-classical.conf:</fontconfig>
+/etc/fonts/conf.avail/20-unhint-small-dejavu-sans-mono.conf:<!DOCTYPE fontconfig SYSTEM "../fonts.dtd">
+/etc/fonts/conf.avail/20-unhint-small-dejavu-sans-mono.conf:<fontconfig>
+/etc/fonts/conf.avail/20-unhint-small-dejavu-sans-mono.conf:  <!--  /etc/fonts/conf.d/20-unhint-small-dejavu-sans-mono.conf
+/etc/fonts/conf.avail/20-unhint-small-dejavu-sans-mono.conf:</fontconfig>
+/etc/fonts/conf.avail/67-smc-dyuthi.conf:<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+/etc/fonts/conf.avail/67-smc-dyuthi.conf:<fontconfig>
+/etc/fonts/conf.avail/67-smc-dyuthi.conf:</fontconfig>
+/etc/fonts/conf.avail/66-lohit-tamil.conf:<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+/etc/fonts/conf.avail/66-lohit-tamil.conf:<fontconfig>
+/etc/fonts/conf.avail/66-lohit-tamil.conf:</fontconfig>
+/etc/fonts/conf.avail/20-unhint-small-dejavu-lgc-serif.conf:<!DOCTYPE fontconfig SYSTEM "../fonts.dtd">
+/etc/fonts/conf.avail/20-unhint-small-dejavu-lgc-serif.conf:<fontconfig>
+/etc/fonts/conf.avail/20-unhint-small-dejavu-lgc-serif.conf:  <!--  /etc/fonts/conf.d/20-unhint-small-dejavu-lgc-serif.conf
+/etc/fonts/conf.avail/20-unhint-small-dejavu-lgc-serif.conf:</fontconfig>
+/etc/fonts/conf.avail/65-0-smc-rachana.conf:<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+/etc/fonts/conf.avail/65-0-smc-rachana.conf:<fontconfig>
+/etc/fonts/conf.avail/65-0-smc-rachana.conf:</fontconfig>
+/etc/fonts/conf.avail/67-smc-anjalioldlipi.conf:<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+/etc/fonts/conf.avail/67-smc-anjalioldlipi.conf:<fontconfig>
+/etc/fonts/conf.avail/67-smc-anjalioldlipi.conf:</fontconfig>
+/etc/fonts/conf.avail/65-0-fonts-telu-extra.conf:<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+/etc/fonts/conf.avail/65-0-fonts-telu-extra.conf:<fontconfig>
+/etc/fonts/conf.avail/65-0-fonts-telu-extra.conf:</fontconfig>
+/etc/fonts/conf.avail/66-lohit-kannada.conf:<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+/etc/fonts/conf.avail/66-lohit-kannada.conf:<fontconfig>
+/etc/fonts/conf.avail/66-lohit-kannada.conf:</fontconfig>
+/etc/fonts/conf.avail/57-dejavu-sans-mono.conf:<!DOCTYPE fontconfig SYSTEM "../fonts.dtd">
+/etc/fonts/conf.avail/57-dejavu-sans-mono.conf:<!-- /etc/fonts/conf.d/57-dejavu-sans-mono.conf
+/etc/fonts/conf.avail/57-dejavu-sans-mono.conf:     Define aliasing and other fontconfig settings for
+/etc/fonts/conf.avail/57-dejavu-sans-mono.conf:<fontconfig>
+/etc/fonts/conf.avail/57-dejavu-sans-mono.conf:</fontconfig>
+/etc/fonts/snap-override/10-prefer-noto.conf:<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+/etc/fonts/snap-override/10-prefer-noto.conf: /etc/fonts/snap-override/10-prefer-noto.conf
+/etc/fonts/snap-override/10-prefer-noto.conf: Currently (2023-07-27) this file is a copy of the new fontconfig file
+/etc/fonts/snap-override/10-prefer-noto.conf: /etc/fonts/conf.d/56-language-selector-prefer.conf. Its purpose is to
+/etc/fonts/snap-override/10-prefer-noto.conf: in 60-latin.conf, but besides latin, cyrillic and greek they include
+/etc/fonts/snap-override/10-prefer-noto.conf:<fontconfig>
+/etc/fonts/snap-override/10-prefer-noto.conf:</fontconfig>
+/etc/fonts/fonts.conf:<!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+/etc/fonts/fonts.conf:<!-- /etc/fonts/fonts.conf file to configure system font access -->
+/etc/fonts/fonts.conf:<fontconfig>
+/etc/fonts/fonts.conf:	<description>Default configuration file</description>
+/etc/fonts/fonts.conf:	LOCAL CHANGES BELONG IN 'local.conf'.
+/etc/fonts/fonts.conf:	The intent of this standard configuration file is to be adequate for
+/etc/fonts/fonts.conf:	have found problems with this configuration, they are probably
+/etc/fonts/fonts.conf:	to the fontconfig issue tracking system located at fontconfig.org
+/etc/fonts/fonts.conf:	Note that the normal 'make install' procedure for fontconfig is to
+/etc/fonts/fonts.conf:	replace any existing fonts.conf file with the new version.  Place
+/etc/fonts/fonts.conf:	any local customizations in local.conf which this file references.
+/etc/fonts/fonts.conf:	<include ignore_missing="yes">conf.d</include>
+/etc/fonts/fonts.conf:	<cachedir>/var/cache/fontconfig</cachedir>
+/etc/fonts/fonts.conf:	<cachedir prefix="xdg">fontconfig</cachedir>
+/etc/fonts/fonts.conf:	<cachedir>~/.fontconfig</cachedir>
+/etc/fonts/fonts.conf:	<config>
+/etc/fonts/fonts.conf:  Rescan configuration every 30 seconds when FcFontSetList is called
+/etc/fonts/fonts.conf:	</config>
+/etc/fonts/fonts.conf:</fontconfig>
+/etc/avahi/avahi-daemon.conf:# See avahi-daemon.conf(5) for more information on this configuration
+/etc/avahi/avahi-daemon.conf:#browse-domains=0pointer.de, zeroconf.org
+/etc/avahi/avahi-daemon.conf:#publish-resolv-conf-dns-servers=yes
+/etc/avahi/hosts:# See avahi.hosts(5) for more information on this configuration file!
+/etc/ssh/ssh_config:# This is the ssh client system-wide configuration file.  See
+/etc/ssh/ssh_config:# ssh_config(5) for more information.  This file provides defaults for
+/etc/ssh/ssh_config:# users, and the values can be changed in per-user configuration files
+/etc/ssh/ssh_config:# Any configuration value is only changed the first time it is set.
+/etc/ssh/ssh_config:# configuration file, and defaults at the end.
+/etc/ssh/ssh_config:# ssh_config(5) man page.
+/etc/ssh/ssh_config:Include /etc/ssh/ssh_config.d/*.conf
+/etc/sysctl.conf:# /etc/sysctl.conf - Configuration file for setting system variables
+/etc/sysctl.conf:# See sysctl.conf (5) for information.
+/etc/sysctl.conf:#net.ipv4.conf.default.rp_filter=1
+/etc/sysctl.conf:#net.ipv4.conf.all.rp_filter=1
+/etc/sysctl.conf:#  Enabling this option disables Stateless Address Autoconfiguration
+/etc/sysctl.conf:#net.ipv6.conf.all.forwarding=1
+/etc/sysctl.conf:#net.ipv4.conf.all.accept_redirects = 0
+/etc/sysctl.conf:#net.ipv4.conf.default.accept_redirects = 0
+/etc/sysctl.conf:# net.ipv4.conf.all.secure_redirects = 1
+/etc/sysctl.conf:#net.ipv4.conf.all.send_redirects = 0
+/etc/sysctl.conf:#net.ipv4.conf.all.log_martians = 1
+/etc/xdg/ui/ui_standards.rc:    <Action name="options_configure_keybinding"/>
+/etc/xdg/ui/ui_standards.rc:    <Action name="options_configure_toolbars"/>
+/etc/xdg/ui/ui_standards.rc:    <Action name="options_configure_notifications"/>
+/etc/xdg/ui/ui_standards.rc:    <Action name="options_configure_carddecks"/>
+/etc/xdg/ui/ui_standards.rc:    <Action name="options_configure_highscores"/>
+/etc/xdg/ui/ui_standards.rc:    <MergeLocal name="configure_merge"/>
+/etc/xdg/ui/ui_standards.rc:    <Action name="options_configure"/>
+/etc/xdg/lxqt/globalkeyshortcuts.conf/globalkeyshortcuts.conf:Exec=lxqt-config-brightness, -d
+/etc/xdg/lxqt/globalkeyshortcuts.conf/globalkeyshortcuts.conf:Exec=lxqt-config-brightness, -i
+/etc/xdg/lxqt/globalkeyshortcuts.conf/globalkeyshortcuts.conf:Exec=lxqt-config-brightness, -d
+/etc/xdg/lxqt/globalkeyshortcuts.conf/globalkeyshortcuts.conf:Exec=lxqt-config-brightness, -i
+/etc/xdg/lxqt/globalkeyshortcuts.conf/globalkeyshortcuts.conf:Exec=lxqt-config-monitor
+/etc/xdg/autostart/snap-userd-autostart.desktop:Comment=Helper program for launching snap applications that are configured to start automatically.
+/etc/xdg/autostart/print-applet.desktop:Exec=system-config-printer-applet
+/etc/xdg/autostart/print-applet.desktop:X-Ubuntu-Gettext-Domain=system-config-printer
+/etc/xdg/libfm/libfm.conf:[config]
+/etc/xdg/libfm/libfm.conf:confirm_del=1
+/etc/xdg/openbox/menu.xml:    <action name="Execute"><execute>obconf</execute></action>
+/etc/xdg/openbox/menu.xml:  <item label="Reconfigure">
+/etc/xdg/openbox/menu.xml:    <action name="Reconfigure" />
+/etc/xdg/openbox/autostart:# You may place a similar script in $HOME/.config/openbox/autostart
+/etc/xdg/openbox/autostart:# If you want to use GNOME config tools...
+/etc/xdg/openbox/autostart:# If you want to use XFCE config tools...
+/etc/xdg/openbox/environment:# User-specific variables should be placed in $HOME/.config/openbox/environment
+/etc/xdg/openbox/environment:# To set your keyboard layout, you need to modify your X config:
+/etc/xdg/openbox/rc.xml:        Copy the file to $HOME/.config/openbox/ instead. -->
+/etc/xdg/openbox/rc.xml:<openbox_config xmlns="http://openbox.org/3.4/rc"
+/etc/xdg/openbox/rc.xml:       use obconf if you want to change these without having to log out
+/etc/xdg/openbox/rc.xml:  <!-- default menu file (or custom one in $HOME/.config/openbox/) -->
+/etc/xdg/openbox/rc.xml:</openbox_config>
+/etc/xdg/xdg-Lubuntu/lxqt/globalkeyshortcuts.conf:Exec=lxqt-config-brightness, -d
+/etc/xdg/xdg-Lubuntu/lxqt/globalkeyshortcuts.conf:Exec=lxqt-config-brightness, -i
+/etc/xdg/xdg-Lubuntu/lxqt/globalkeyshortcuts.conf:Exec=lxqt-config-brightness, -d
+/etc/xdg/xdg-Lubuntu/lxqt/globalkeyshortcuts.conf:Exec=lxqt-config-brightness, -i
+/etc/xdg/xdg-Lubuntu/lxqt/session.conf:leave_confirmation=true
+/etc/xdg/xdg-Lubuntu/libfm/libfm.conf:[config]
+/etc/xdg/xdg-Lubuntu/libfm/libfm.conf:confirm_del=1
+/etc/xdg/xdg-Lubuntu/libfm/libfm.conf:confirm_trash=1
+/etc/xdg/xdg-Lubuntu/openbox/rc.xml:        Copy the file to $HOME/.config/openbox/ instead. -->
+/etc/xdg/xdg-Lubuntu/openbox/rc.xml:<openbox_config xmlns="http://openbox.org/3.4/rc"
+/etc/xdg/xdg-Lubuntu/openbox/rc.xml:       use obconf if you want to change these without having to log out
+/etc/xdg/xdg-Lubuntu/openbox/rc.xml:  <!-- default menu file (or custom one in $HOME/.config/openbox/) -->
+/etc/xdg/xdg-Lubuntu/openbox/rc.xml:</openbox_config>
+/etc/xdg/menus/lxqt-applications-compact.menu:				<Filename>lxqt-config.desktop</Filename>
+/etc/xdg/menus/lxqt-applications-compact.menu:				<Filename>lxqt-config.desktop</Filename>
+/etc/xdg/menus/lxqt-applications.menu:				<Filename>lxqt-config.desktop</Filename>
+/etc/xdg/menus/lxqt-applications.menu:				<Filename>lxqt-config.desktop</Filename>
+/etc/xdg/menus/kf5-applications.menu:				<Filename>kde-kcm_knetworkconfmodule_ss.desktop</Filename>
+/etc/xdg/menus/lxqt-applications-simple.menu:		<Filename>lxqt-config.desktop</Filename>
+/etc/xdg/menus/lxqt-applications-simple.menu:				<Filename>lxqt-config.desktop</Filename>
+/etc/xdg/menus/lxqt-config.menu:                    <Filename>lxqt-config.desktop</Filename>
+/etc/xdg/user-dirs.conf:# You can also have per-user config in ~/.config/user-dirs.conf, or specify
+/etc/cracklib/cracklib.conf:#   Host configuration of cracklib.
+/etc/cracklib/cracklib.conf:#   The current configuration supports both the fsstnd 1.2 and fhs 2.0 
+/etc/crypttab:#       beforehand by the initramfs (/etc/mkinitcpio.conf). The same applies
+/etc/xml/catalog:<delegateSystem systemIdStartString="http://www.freedesktop.org/standards/PolicyKit/1.0/policyconfig.dtd" catalog="file:///etc/xml/polkitd.xml"/>
+/etc/xml/polkitd.xml:<delegateSystem systemIdStartString="http://www.freedesktop.org/standards/PolicyKit/1.0/policyconfig.dtd" catalog="file:///usr/share/xml/polkit-1/catalog.xml"/>
+/etc/cups/cups-browsed.conf:# All configuration options described here can also be supplied on the
+/etc/cups/cups-browsed.conf:# contradicting settings the setting defined in the configuration file
+/etc/cups/cups-browsed.conf:# It can be configured, in seconds, with the BrowseTimeout directive.
+/etc/cups/cups-browsed.conf:# LDAP browsing configuration
+/etc/cups/cups-browsed.conf:# The default value for all options is an empty string. Example configuration:
+/etc/cups/cups-browsed.conf:# (depending on the other configuration settings of cups-browsed).
+/etc/cups/cupsd.conf:# Configuration file for the CUPS scheduler.  See "man cupsd.conf" for a
+/etc/cups/cupsd.conf:# Restrict access to configuration files...
+/etc/cups/cupsd.conf:<Location /admin/conf>
+/etc/cups/cups-files.conf:# File/directory/user/group configuration file for the CUPS scheduler.
+/etc/cups/cups-files.conf:# See "man cups-files.conf" for a complete description of this file.
+/etc/cups/cups-files.conf:#FatalErrors config
+/etc/cups/cups-files.conf:# Do we call fsync() after writing configuration or status files?
+/etc/cups/cups-files.conf:# Administrator user group, used to match @SYSTEM in cupsd.conf policy rules...
+/etc/cups/cups-files.conf:# Permissions for configuration and log files...
+/etc/cups/cups-files.conf:# root directory.  Also see the "AccessLogLevel" directive in cupsd.conf.
+/etc/cups/cups-files.conf:# directive in cupsd.conf.
+/etc/cups/cups-files.conf:# directive in cupsd.conf.
+/etc/cups/cups-files.conf:# Location of other configuration files...
+/etc/cups/snmp.conf:# SNMP configuration file for CUPS.  See "man cups-snmp.conf" for a complete
+/etc/cups/raw.types:# reconfigure this file with dpkg-reconfigure.  If it is removed, it
+/etc/cups/raw.convs:# reconfigure this file with dpkg-reconfigure.  If it is removed, it
+/etc/sudo_logsrvd.conf:# sudo logsrv daemon configuration
+/etc/rsyslog.conf:# /etc/rsyslog.conf configuration file for rsyslog
+/etc/rsyslog.conf:# /usr/share/doc/rsyslog-doc/html/configuration/index.html
+/etc/rsyslog.conf:# Default logging rules can be found in /etc/rsyslog.d/50-default.conf
+/etc/rsyslog.conf:# Include all config files in /etc/rsyslog.d/
+/etc/rsyslog.conf:$IncludeConfig /etc/rsyslog.d/*.conf
+/etc/services:rmtcfg		1236/tcp			# Gracilis Packeten remote config server
+/etc/wpa_supplicant/ifupdown.sh:# post-down phases of network interface configuration. It allows
+/etc/wpa_supplicant/ifupdown.sh:				conf_wpa_supplicant 	|| { kill_wpa_supplicant; exit 1; }
+/etc/wpa_supplicant/functions.sh:# -c	configuration file
+/etc/wpa_supplicant/functions.sh:# configuration file
+/etc/wpa_supplicant/functions.sh:		wpa_msg verbose "reloading wpa_supplicant configuration file via HUP signal"
+/etc/wpa_supplicant/functions.sh:## formulate a usable configuration from interfaces(5) wpa- lines
+/etc/wpa_supplicant/functions.sh:conf_wpa_supplicant () {
+/etc/wpa_supplicant/functions.sh:		wpa_msg verbose "configuring network block -- $WPA_ID"
+/etc/wpa_supplicant/functions.sh:		wpa_msg log "/etc/network/interfaces does not exist, $WPA_IFACE will not be configured"
+/etc/wpa_supplicant/functions.sh:			# Force settings over the unconfigured "master" IFACE
+/etc/wpa_supplicant/functions.sh:		ifconfig "$WPA_IFACE" up
+/etc/rsyslog.d/50-default.conf:#			For more information see rsyslog.conf(5) and /etc/rsyslog.conf
+/etc/speech-dispatcher/modules/dtk-generic.conf:# this plugin, all the specifics are handled in this configuration
+/etc/speech-dispatcher/modules/dtk-generic.conf:# See speechd.conf for information where debugging information is stored
+/etc/speech-dispatcher/modules/dtk-generic.conf:# Users of previous versions of this configuration file need to rename their
+/etc/speech-dispatcher/modules/festival.conf:# See speechd.conf for information where debugging information is stored
+/etc/speech-dispatcher/modules/mary-generic.conf:# this plugin, all the specifics are handled in this configuration
+/etc/speech-dispatcher/modules/mary-generic.conf:# synthesis. Use this config file with the sd_generic output module.
+/etc/speech-dispatcher/modules/mary-generic.conf:# See speechd.conf for information where debugging information is stored
+/etc/speech-dispatcher/modules/mary-generic.conf:# DefaultVolume in the speechd.conf file.
+/etc/speech-dispatcher/modules/llia_phon-generic.conf:# this plugin, all the specifics are handled in this configuration
+/etc/speech-dispatcher/modules/cicero.conf:# See speechd.conf for information where debugging information is stored
+/etc/speech-dispatcher/modules/cicero.conf:# This should not be confused with the logging of this module/driver
+/etc/speech-dispatcher/modules/cicero.conf:# specified in speechd.conf.
+/etc/speech-dispatcher/modules/swift-generic.conf:# this plugin, all the specifics are handled in this configuration
+/etc/speech-dispatcher/modules/swift-generic.conf:#Use this config file with the sd_generic output module.
+/etc/speech-dispatcher/modules/swift-generic.conf:# See speechd.conf for information where debugging information is stored
+/etc/speech-dispatcher/modules/swift-generic.conf: "printf %s \'$DATA\' >/tmp/swift-speak.txt && /opt/swift/bin/swift -p speech/rate=$RATE,speech/pitch/shift=$PITCH,tts/content-type=text/plain,tts/text-encoding=utf-8,config/default-voice=$VOICE -f /tmp/swift-speak.txt -o /tmp/swift-speak.wav&& $PLAY_COMMAND /tmp/swift-speak.wav" 
+/etc/speech-dispatcher/modules/espeak-ng-mbrola-generic.conf:# this plugin, all the specifics are handled in this configuration
+/etc/speech-dispatcher/modules/espeak-ng-mbrola-generic.conf:# synthesis. Use this config file with the sd_generic output module.
+/etc/speech-dispatcher/modules/espeak-ng-mbrola-generic.conf:# See speechd.conf for information where debugging information is stored
+/etc/speech-dispatcher/modules/espeak-ng-mbrola-generic.conf:# DefaultVolume in the speechd.conf file.
+/etc/speech-dispatcher/modules/mimic3-generic.conf:# this plugin, all the specifics are handled in this configuration
+/etc/speech-dispatcher/modules/mimic3-generic.conf:# synthesis. Use this config file with the sd_generic output module.
+/etc/speech-dispatcher/modules/mimic3-generic.conf:# See speechd.conf for information where debugging information is stored
+/etc/speech-dispatcher/modules/epos-generic.conf:# this plugin, all the specifics are handled in this configuration
+/etc/speech-dispatcher/modules/epos-generic.conf:# See speechd.conf for information where debugging information is stored
+/etc/speech-dispatcher/modules/flite.conf:# See speechd.conf for information where debugging information is stored
+/etc/speech-dispatcher/modules/espeak-mbrola-generic.conf:# this plugin, all the specifics are handled in this configuration
+/etc/speech-dispatcher/modules/espeak-mbrola-generic.conf:# synthesis. Use this config file with the sd_generic output module.
+/etc/speech-dispatcher/modules/espeak-mbrola-generic.conf:# See speechd.conf for information where debugging information is stored
+/etc/speech-dispatcher/modules/espeak-mbrola-generic.conf:# DefaultVolume in the speechd.conf file.
+/etc/speech-dispatcher/clients/emacs.conf:# Local configuration for emacs
+/etc/speech-dispatcher/speechd.conf:# Global configuration for Speech Dispatcher
+/etc/speech-dispatcher/speechd.conf:# configuration variables.
+/etc/speech-dispatcher/speechd.conf:# By default, Speech Dispatcher is configured to shut itself down after a period of
+/etc/speech-dispatcher/speechd.conf:# the logs are written to the default destination (e.g. a preconfigured
+/etc/speech-dispatcher/speechd.conf:# the synthesizer according to the output module configuration.
+/etc/speech-dispatcher/speechd.conf:# Please see the synthesizer-specific configuration
+/etc/speech-dispatcher/speechd.conf:# configuration.
+/etc/speech-dispatcher/speechd.conf:#  Syntax: AddModule "name" "binary" "configuration" "logfile"
+/etc/speech-dispatcher/speechd.conf:#  - configuration is the path to the config file of this module,
+/etc/speech-dispatcher/speechd.conf:#    or ~/.config/speech-dispatcher) or absolute
+/etc/speech-dispatcher/speechd.conf:#AddModule "espeak"                   "sd_espeak"    "espeak.conf"
+/etc/speech-dispatcher/speechd.conf:#AddModule "espeak-ng"                "sd_espeak-ng" "espeak-ng.conf"
+/etc/speech-dispatcher/speechd.conf:#AddModule "festival"                 "sd_festival"  "festival.conf"
+/etc/speech-dispatcher/speechd.conf:#AddModule "flite"                    "sd_flite"     "flite.conf"
+/etc/speech-dispatcher/speechd.conf:#AddModule "ivona"                    "sd_ivona"     "ivona.conf"
+/etc/speech-dispatcher/speechd.conf:#AddModule "pico"                     "sd_pico"      "pico.conf"
+/etc/speech-dispatcher/speechd.conf:#AddModule "espeak-ng-mbrola-generic" "sd_generic"   "espeak-ng-mbrola-generic.conf"
+/etc/speech-dispatcher/speechd.conf:#AddModule "espeak-mbrola-generic"    "sd_generic"   "espeak-mbrola-generic.conf"
+/etc/speech-dispatcher/speechd.conf:#AddModule "swift-generic"            "sd_generic"   "swift-generic.conf"
+/etc/speech-dispatcher/speechd.conf:#AddModule "epos-generic"             "sd_generic"   "epos-generic.conf"
+/etc/speech-dispatcher/speechd.conf:#AddModule "dtk-generic"              "sd_generic"   "dtk-generic.conf"
+/etc/speech-dispatcher/speechd.conf:#AddModule "ibmtts"                   "sd_ibmtts"    "ibmtts.conf"
+/etc/speech-dispatcher/speechd.conf:#AddModule "cicero"                   "sd_cicero"    "cicero.conf"
+/etc/speech-dispatcher/speechd.conf:#AddModule "kali"                     "sd_kali"      "kali.conf"
+/etc/speech-dispatcher/speechd.conf:#AddModule "mary-generic"             "sd_generic"   "mary-generic.conf"
+/etc/speech-dispatcher/speechd.conf:#AddModule "baratinoo"                "sd_baratinoo" "baratinoo.conf"
+/etc/speech-dispatcher/speechd.conf:#AddModule "rhvoice"                  "sd_rhvoice"   "rhvoice.conf"
+/etc/speech-dispatcher/speechd.conf:#AddModule "voxin"                    "sd_voxin"     "voxin.conf"
+/etc/speech-dispatcher/speechd.conf:# Here you can include the files with client-specific configuration
+/etc/speech-dispatcher/speechd.conf:Include "clients/*.conf"
+/etc/menu-methods/openbox:userprefix=".config/openbox/"
+/etc/bluetooth/main.conf:# system supports only Multiple Profiles Single Device (MPSD) configuration
+/etc/bluetooth/main.conf:# Devices (MPMD) configurations.
+/etc/bluetooth/main.conf:# Possible values: "never", "confirm", "always"
+/etc/bluetooth/main.conf:# BR/EDR Page scan activity configuration
+/etc/bluetooth/main.conf:# BR/EDR Inquiry scan activity configuration
+/etc/dhcpcd.conf:# A sample configuration for dhcpcd.
+/etc/dhcpcd.conf:# See dhcpcd.conf(5) for details.
+/etc/dhcpcd.conf:# Persist interface configuration when dhcpcd exits.
+/etc/sensors3.conf:# libsensors configuration file
+/etc/sensors3.conf:# This default configuration file only includes statements which do not
+/etc/sensors3.conf:# placed in custom configuration files located in /etc/sensors.d. This
+/etc/sensors3.conf:# Such custom configuration files for specific mainboards can be found in
+/etc/sensors3.conf:# "configs" directory of lm-sensors package.
+/etc/sensors3.conf:# Please contribute back a configuration of your board so other users with
+/etc/nanorc:## Fix Backspace/Delete confusion problem.
+/etc/chatscripts/gprs:# +CFUN may allow to configure the handset to limit operations to
+/etc/chatscripts/pap:# This script can be shared among different pppd peer configurations.
+/etc/hdparm.conf:## This is the default configuration for hdparm for Debian.
+/etc/ssl/openssl.cnf:# OpenSSL example configuration file.
+/etc/ssl/openssl.cnf:# See doc/man5/config.pod for more info.
+/etc/ssl/openssl.cnf:# Note that you can include other files from the main configuration
+/etc/ssl/openssl.cnf:openssl_conf = openssl_init
+/etc/ssl/openssl.cnf:# Comment out the next line to ignore configuration errors
+/etc/ssl/openssl.cnf:config_diagnostics = 1
+/etc/ssl/openssl.cnf:# To use this configuration file with the "-extfile" option of the
+/etc/ssl/openssl.cnf:# (Alternatively, use a configuration file that has only
+/etc/ssl/openssl.cnf:# Or use config file substitution like this:
+/etc/ssl/openssl.cnf:# application. This file contains configuration data required by the OpenSSL
+/etc/ssl/openssl.cnf:default_tsa = tsa_config1	# the default TSA section
+/etc/ssl/openssl.cnf:[ tsa_config1 ]
+/etc/udev/udev.conf:# see udev.conf(5) for details
+/etc/udev/udev.conf:# also want to rebuild the initrd, so that it will include the modified configuration.
+/etc/udev/iocost.conf:# Entries in this file show the compile time defaults. Local configuration
+/etc/udev/iocost.conf:# the /etc/udev/iocost.conf.d/ directory. The latter is generally recommended.
+/etc/udev/iocost.conf:# Defaults can be restored by simply deleting the main configuration file and
+/etc/udev/iocost.conf:# Use 'systemd-analyze cat-config udev/iocost.conf' to display the full config.
+/etc/udev/iocost.conf:# See iocost.conf(5) for details.
+/etc/logrotate.conf:# system-specific logs may also be configured here.
+/etc/grub.d/05_debian_theme:# grub-mkconfig helper script.
+/etc/grub.d/05_debian_theme:# Include the GRUB helper library for grub-mkconfig.
+/etc/grub.d/05_debian_theme:. /usr/share/grub/grub-mkconfig_lib
+/etc/grub.d/05_debian_theme:# NOTE: This MUST BE A DOTFILE to avoid confusing it with user-defined images.
+/etc/grub.d/05_debian_theme:	# ... and write our configuration snippet to stdout. Use the colors
+/etc/grub.d/05_debian_theme:# Include the configuration of desktop-base if available.
+/etc/grub.d/README:The number namespace in-between is configurable by system installer and/or
+/etc/grub.d/25_bli:# grub-mkconfig helper script.
+/etc/grub.d/35_fwupd:. "$pkgdatadir/grub-mkconfig_lib"
+/etc/grub.d/35_fwupd:if [ -f /var/lib/fwupd/uefi_capsule.conf ] &&
+/etc/grub.d/35_fwupd:      . /var/lib/fwupd/uefi_capsule.conf
+/etc/grub.d/41_custom:if [ -f  \${config_directory}/custom.cfg ]; then
+/etc/grub.d/41_custom:  source \${config_directory}/custom.cfg
+/etc/grub.d/41_custom:elif [ -z "\${config_directory}" -a -f  \$prefix/custom.cfg ]; then
+/etc/grub.d/20_memtest86+:if [ -f /usr/lib/grub/grub-mkconfig_lib ]; then
+/etc/grub.d/20_memtest86+:  . /usr/lib/grub/grub-mkconfig_lib
+/etc/grub.d/20_memtest86+:  echo "Cannot find grub config file, exiting." >&2
+/etc/grub.d/20_memtest86+:elif [ `getconf LONG_BIT` = "64" ]; then
+/etc/grub.d/00_header:# grub-mkconfig helper script.
+/etc/grub.d/00_header:. "$pkgdatadir/grub-mkconfig_lib"
+/etc/grub.d/30_uefi-firmware:# grub-mkconfig helper script.
+/etc/grub.d/30_uefi-firmware:. "$pkgdatadir/grub-mkconfig_lib"
+/etc/grub.d/20_linux_xen:# grub-mkconfig helper script.
+/etc/grub.d/20_linux_xen:. "$pkgdatadir/grub-mkconfig_lib"
+/etc/grub.d/20_linux_xen:	config=
+/etc/grub.d/20_linux_xen:	for j in "${dirname}/config-${version}" "${dirname}/config-${alt_version}" "/etc/kernels/kernel-config-${version}" ; do
+/etc/grub.d/20_linux_xen:		config="${j}"
+/etc/grub.d/20_linux_xen:        if (grep -qx "CONFIG_XEN_DOM0=y" "${config}" 2> /dev/null || grep -qx "CONFIG_XEN_PRIVILEGED_GUEST=y" "${config}" 2> /dev/null); then linux_list="$linux_list $i" ; fi
+/etc/grub.d/20_linux_xen:	*/*.config)
+/etc/grub.d/20_linux_xen:	# enable it. This caused a lot of confusion to users that set the option to 'y',
+/etc/grub.d/10_linux_zfs:# grub-mkconfig helper script.
+/etc/grub.d/10_linux_zfs:. "${pkgdatadir}/grub-mkconfig_lib"
+/etc/grub.d/10_linux_zfs:# Print the configuration part common to all sections
+/etc/grub.d/10_linux_zfs:#   If 10_linux runs these part will be defined twice in grub configuration
+/etc/grub.d/30_os-prober:# grub-mkconfig helper script.
+/etc/grub.d/30_os-prober:. "$pkgdatadir/grub-mkconfig_lib"
+/etc/grub.d/30_os-prober:    grub_warn "$(gettext_printf "os-prober will not be executed to detect other bootable partitions.\nSystems on them will not be added to the GRUB boot configuration.\nCheck GRUB_DISABLE_OS_PROBER documentation entry.")"
+/etc/grub.d/30_os-prober:  grub_warn "$(gettext_printf "os-prober will not be executed to detect other bootable partitions.\nSystems on them will not be added to the GRUB boot configuration.\nCheck GRUB_DISABLE_OS_PROBER documentation entry.")"
+/etc/grub.d/30_os-prober:	# enable it. This caused a lot of confusion to users that set the option to 'y',
+/etc/grub.d/30_os-prober:      gettext_printf "%s is not yet supported by grub-mkconfig.\n" "  ${LONGNAME}" >&2
+/etc/grub.d/10_linux:# grub-mkconfig helper script.
+/etc/grub.d/10_linux:. "$pkgdatadir/grub-mkconfig_lib"
+/etc/grub.d/10_linux:  config=
+/etc/grub.d/10_linux:  for i in "${dirname}/config-${version}" "${dirname}/config-${alt_version}" "/etc/kernels/kernel-config-${version}" ; do
+/etc/grub.d/10_linux:      config="${i}"
+/etc/grub.d/10_linux:  if test -n "${config}" ; then
+/etc/grub.d/10_linux:      initramfs=`grep CONFIG_INITRAMFS_SOURCE= "${config}" | cut -f2 -d= | tr -d \"`
+/etc/grub.d/10_linux:  # enable it. This caused a lot of confusion to users that set the option to 'y',
+/etc/login.defs:#       See default PAM configuration files provided for
+/etc/login.defs:# This option conflicts with the pam_tally PAM module.
+/etc/login.defs:# Login configuration initializations:
+/etc/login.defs:# the PAM modules configuration.
+/etc/apt/apt.conf.d/50unattended-upgrades://   dpkg --force-confold --configure -a
+/etc/apt/apt.conf.d/70debconf:// Pre-configure all packages with debconf before they are installed.
+/etc/apt/apt.conf.d/70debconf:DPkg::Pre-Install-Pkgs {"/usr/sbin/dpkg-preconfigure --apt || true";};
+/etc/apt/sources.list.d/ubuntu.sources:## The following settings can be adjusted to configure which packages to use from Ubuntu.
+/etc/apt/sources.list.d/ubuntu.sources:## Suites: The following additional suites can be configured
+/etc/skel/.profile:# for ssh logins, install and configure the libpam-umask package.
+/etc/anacrontab:# /etc/anacrontab: configuration file for anacron
+/etc/fwupd/bios-settings.d/README.md:On supported machines fwupd can enforce BIOS settings policy so that a user's desired settings are configured at bootup
+/etc/ucf.conf:# ucf script for configuration.
+/etc/ucf.conf:# conf_source_dir=/some/path/
+/etc/ucf.conf:# conf_force_conffold=YES
+/etc/ucf.conf:# conf_force_conffnew=YES
+/etc/ucf.conf:# Please note that only one of conf_force_conffold and
+/etc/ucf.conf:# conf_force_conffnew should be set.
+/etc/udisks2/mount_options.conf.example:# Typically placed at /etc/udisks2/mount_options.conf
+/etc/UPower/UPower.conf:# logind.conf(5).
+/etc/cryptsetup-initramfs/conf-hook:#   /etc/initramfs-tools/initramfs.conf
+/etc/apparmor/parser.conf:# parser.conf is a global AppArmor config file for the apparmor_parser
+/etc/dhcp/dhclient-exit-hooks.d/timesyncd:TIMESYNCD_CONF=/run/systemd/timesyncd.conf.d/01-dhclient.conf
+/etc/w3m/config:confirm_qq 1
+/etc/w3m/config:siteconf_file ~/.w3m/siteconf
+/etc/libreoffice/soffice.sh:# configuration file to set up some environment variables for LibreOffice
+/etc/libreoffice/registry/main.xcd:    Contains Internet-related configurations (proxies, etc.).
+/etc/libreoffice/registry/main.xcd:        Contains Internet-related configurations (servers, proxies, etc.).
+/etc/libreoffice/registry/main.xcd:    contains configuration related to the interaction system of OpenOffice.org.
+/etc/libreoffice/registry/main.xcd:    Configuration of Accelerators replacing the old not XCU-based configuration
+/etc/libreoffice/registry/main.xcd:        A group of optional user-defined images. There are two ways to define image - 1. Embed the image data directly into the configuration. 2. Use file URLs to address external bitmap files. Embedded image data has a higher priority than file URLs.
+/etc/libreoffice/registry/main.xcd:        Contains configuration for the BASIC IDE.
+/etc/libreoffice/registry/main.xcd:            Autocomplete function configuration.
+/etc/libreoffice/registry/main.xcd:            Contains user configuration.
+/etc/libreoffice/registry/main.xcd:    Contains add-in function configuration.
+/etc/libreoffice/registry/main.xcd:    Contains configuration items related to the Impress application.
+/etc/libreoffice/registry/main.xcd:        Contains config entries for the DirectX-based implementation of the XCanvas interface.
+/etc/libreoffice/registry/main.xcd:	    config item is the fact that several
+/etc/libreoffice/registry/main.xcd:        Describes a menu entry for configurable office menus (e.g. file
+/etc/libreoffice/registry/main.xcd:           printer configuration option (removing object transparency). This value
+/etc/libreoffice/registry/main.xcd:            <value>$(insturl)/share/config/symbol</value>
+/etc/libreoffice/registry/main.xcd:            Contains the configuration files. This value cannot be changed
+/etc/libreoffice/registry/main.xcd:            <value>$(insturl)/share/config</value>
+/etc/libreoffice/registry/main.xcd:            <value>$(userurl)/config/folders</value>
+/etc/libreoffice/registry/main.xcd:              <it>$(userurl)/config</it>
+/etc/libreoffice/registry/main.xcd:            interface configuration. The final user interface configuration is
+/etc/libreoffice/registry/main.xcd:              <it>$(insturl)/share/config</it>
+/etc/libreoffice/registry/main.xcd:            <value>$(userurl)/config</value>
+/etc/libreoffice/registry/main.xcd:            <value>$(insturl)/share/config/symbol</value>
+/etc/libreoffice/registry/main.xcd:            Specifies the default directory where the configuration files
+/etc/libreoffice/registry/main.xcd:            <value>$(insturl)/share/config</value>
+/etc/libreoffice/registry/main.xcd:            <value>$(userurl)/config/folders</value>
+/etc/libreoffice/registry/main.xcd:            <value>$(userurl)/config</value>
+/etc/libreoffice/registry/main.xcd:            interface configuration. The final user interface configuration is
+/etc/libreoffice/registry/main.xcd:            <value>$(userurl)/config</value>
+/etc/libreoffice/registry/main.xcd:        Contains information about configurable menus.
+/etc/libreoffice/registry/main.xcd:          Specifies whether the user defined configuration settings are
+/etc/libreoffice/registry/main.xcd:          configuration via the Expert Configuration button.
+/etc/libreoffice/registry/main.xcd:          If 'true', the config items VisibleLayers, PrintableLayers and
+/etc/libreoffice/registry/main.xcd:          file open, if these config items do not exist.
+/etc/libreoffice/registry/main.xcd:            Specifies whether the default orientation of pie charts should be clockwise. In OOXML-heavy environments it might be confusing to see charts being mirrored after save, avoid that by setting this key to true.
+/etc/libreoffice/registry/main.xcd:              the java.lang.math package, plus any methods specified in this configuration
+/etc/libreoffice/registry/main.xcd:        Contains a collection of configuration items for the Draw application that do not fit into another category.
+/etc/libreoffice/registry/main.xcd:          Defines text editing related configuration items.
+/etc/libreoffice/registry/main.xcd:        Contains configuration items related to zooming.
+/etc/libreoffice/registry/main.xcd:    Contains configuration items related to the Impress application.
+/etc/libreoffice/registry/main.xcd:        Contains content related configuration items.
+/etc/libreoffice/registry/main.xcd:          Contains configuration items related to the display of Impress documents.
+/etc/libreoffice/registry/main.xcd:        Contains a collection of configuration items for the Impress application that do not fit into another category.
+/etc/libreoffice/registry/main.xcd:          <value oor:separator=";">vnd.sun.star.expand:$BRAND_BASE_DIR/$BRAND_SHARE_SUBDIR/config/soffice.cfg/simpress/transitions.xml</value>
+/etc/libreoffice/registry/main.xcd:          <value oor:separator=";">vnd.sun.star.expand:$BRAND_BASE_DIR/$BRAND_SHARE_SUBDIR/config/soffice.cfg/simpress/effects.xml</value>
+/etc/libreoffice/registry/main.xcd:          <value oor:separator=";">vnd.sun.star.expand:$BRAND_BASE_DIR/$BRAND_SHARE_SUBDIR/config/soffice.cfg/simpress/layoutlist.xml</value>
+/etc/libreoffice/registry/main.xcd:          <value oor:separator=";">vnd.sun.star.expand:$BRAND_BASE_DIR/$BRAND_SHARE_SUBDIR/config/soffice.cfg/simpress/objectlist.xml</value>
+/etc/libreoffice/registry/main.xcd:          Contains text editing related configuration items.
+/etc/libreoffice/registry/main.xcd:          Specifies configuration items governing the behavior when creating a new document or a new page.
+/etc/libreoffice/registry/main.xcd:          Specifies configuration items governing behavior when starting a presentation.
+/etc/libreoffice/registry/main.xcd:          Contains a list of remote control devices that can connect without user confirmation.
+/etc/libreoffice/registry/main.xcd:          Exports related configuration items.
+/etc/libreoffice/registry/main.xcd:        Contains configuration items for Impress Photo Album function.
+/etc/libreoffice/registry/main.xcd:    configurations.
+/etc/libreoffice/registry/main.xcd:        configurations.
+/etc/libreoffice/registry/main.xcd:        access/configure the usage of the various linguistic service
+/etc/libreoffice/registry/main.xcd:          changed and thus the configuration needs to be updated.
+/etc/libreoffice/registry/main.xcd:    Configuration of layered paths replacing the old path configuration org.openoffice.Office.Common/Path.
+/etc/libreoffice/registry/main.xcd:          Because current implementation of configuration sets allow structured types only, these dummy property was inserted.
+/etc/libreoffice/registry/main.xcd:          Contains path values configured by an administrator or package (read-only for the user).
+/etc/libreoffice/registry/main.xcd:          Contains all path values configured by the user under "Tools-&gt;Options-&gt;Paths".
+/etc/libreoffice/registry/main.xcd:          Define the minimum space in [MB], which must be available on disc to store the recovery configuration. Note: values less than 1 will be ignored.
+/etc/libreoffice/registry/main.xcd:    Contains the configuration schema for the table wizard
+/etc/libreoffice/registry/main.xcd:        Use the new configuration schema org.openoffice.TypeDetection/ and its related sub structures.
+/etc/libreoffice/registry/main.xcd:          Contains configuration items of the type. Items are separated by using ",", list items are separated by";". Sequence of items: Preferred,MediaType,ClipboardFormat,URLPattern,Extensions,DocumentIconID.
+/etc/libreoffice/registry/main.xcd:          Contains configuration items of the filter. Items are separated by ",", list items are separated by ";". Sequence of items: Order,Type,DocumentService,FilterService,Flags,UserData,FilteFormatVersion,TemplateName,UIComponent.
+/etc/libreoffice/registry/main.xcd:    Infobar configuration.
+/etc/libreoffice/registry/main.xcd:          configures if comment anchor should be shown or hidden when display is off
+/etc/libreoffice/registry/main.xcd:          configures additional word separators for word counting
+/etc/libreoffice/registry/main.xcd:          configures if standardized page count should be displayed on the Word Count window
+/etc/libreoffice/registry/main.xcd:          configures how many characters is considered one standardized page
+/etc/libreoffice/registry/main.xcd:          a list of configuration node paths that are to be moved from the
+/etc/libreoffice/registry/main.xcd:          a list of configuration node paths that are not to be moved from
+/etc/libreoffice/registry/main.xcd:          Refer to a configuration file, which contains the list of UI
+/etc/libreoffice/registry/main.xcd:          Refer to a configuration file, which contains the persistent
+/etc/libreoffice/registry/main.xcd:          Refers to a configuration file which contains category
+/etc/libreoffice/registry/main.xcd:    TypeDetection_Types for other parts of type/filter configuration too.
+/etc/libreoffice/registry/main.xcd:    and TypeDetection_Filters for other parts of type/filter configuration
+/etc/libreoffice/registry/main.xcd:    Contains components and templates used for UCB configuration related data. 
+/etc/libreoffice/registry/main.xcd:        Contains data describing the configuration parameters of a Content Provider.
+/etc/libreoffice/registry/main.xcd:        Specifies secondary keys for Content Provider configuration data.
+/etc/libreoffice/registry/main.xcd:          Specifies a set of Content Provider configuration data for the UCB.
+/etc/libreoffice/registry/main.xcd:        Specifies primary keys for Content Provider configuration data.
+/etc/libreoffice/registry/main.xcd:          Specifies a set of secondary keys for Content Provider configuration for the UCB.
+/etc/libreoffice/registry/main.xcd:        Contains a root entry for Content Provider configurations.
+/etc/libreoffice/registry/main.xcd:          <node oor:name="$(insturl)/share/config/symbol" oor:op="fuse"/>
+/etc/libreoffice/registry/main.xcd:          <node oor:name="$(insturl)/share/config" oor:op="fuse"/>
+/etc/libreoffice/registry/main.xcd:          <value>$(userurl)/config/folders</value>
+/etc/libreoffice/registry/main.xcd:          <node oor:name="$(insturl)/share/config" oor:op="fuse"/>
+/etc/libreoffice/registry/main.xcd:          <value>$(userurl)/config</value>
+/etc/libreoffice/registry/main.xcd:          <node oor:name="$(insturl)/share/config" oor:op="fuse"/>
+/etc/libreoffice/registry/main.xcd:          <value>$(userurl)/config</value>
+/etc/libreoffice/registry/main.xcd:              <node oor:name="confirmation" oor:op="replace">
+/etc/libreoffice/registry/main.xcd:              <node oor:name="confirmation" oor:op="replace">
+/etc/libreoffice/registry/main.xcd:                  <it>.*/config/.*\.so[bcdegh]</it>
+/etc/libreoffice/registry/main.xcd:                  <it>.*/config/javasettings.*\.xml</it>
+/etc/libreoffice/registry/main.xcd:                  <it>.*/config/soffice.cfg/modules/.*/menubar/.*\.xml</it>
+/etc/libreoffice/registry/main.xcd:                  <it>.*/config/soffice.cfg/modules/.*/statusbar/.*\.xml</it>
+/etc/libreoffice/registry/main.xcd:                  <it>.*/config/soffice.cfg/modules/.*/toolbar/.*\.xml</it>
+/etc/libreoffice/registry/main.xcd:                  <it>.*/config/soffice.cfg/modules/.*/images/.*</it>
+/etc/libreoffice/registry/main.xcd:        <value oor:external="com.sun.star.configuration.backend.LocaleBackend Locale"/>
+/etc/libreoffice/registry/main.xcd:        <value oor:external="com.sun.star.configuration.backend.LocaleBackend UILocale"/>
+/etc/libreoffice/registry/main.xcd:        <value oor:external="com.sun.star.configuration.backend.LocaleBackend SystemLocale"/>
+/etc/libreoffice/registry/main.xcd:        <value oor:external="com.sun.star.configuration.backend.DesktopBackend ooInetNoProxy"/>
+/etc/libreoffice/registry/main.xcd:        <value oor:external="com.sun.star.configuration.backend.DesktopBackend ooInetProxyType"/>
+/etc/libreoffice/registry/main.xcd:        <value oor:external="com.sun.star.configuration.backend.DesktopBackend ooInetHTTPProxyName"/>
+/etc/libreoffice/registry/main.xcd:        <value oor:external="com.sun.star.configuration.backend.DesktopBackend ooInetHTTPProxyPort"/>
+/etc/libreoffice/registry/main.xcd:        <value oor:external="com.sun.star.configuration.backend.DesktopBackend ooInetHTTPSProxyName"/>
+/etc/libreoffice/registry/main.xcd:        <value oor:external="com.sun.star.configuration.backend.DesktopBackend ooInetHTTPSProxyPort"/>
+/etc/libreoffice/registry/main.xcd:          <value oor:external="com.sun.star.configuration.backend.DesktopBackend SourceViewFontName"/>
+/etc/libreoffice/registry/main.xcd:          <value oor:external="com.sun.star.configuration.backend.DesktopBackend SourceViewFontHeight"/>
+/etc/libreoffice/registry/main.xcd:          <value oor:external="com.sun.star.configuration.backend.DesktopBackend TemplatePathVariable"/>
+/etc/libreoffice/registry/main.xcd:        <value oor:external="com.sun.star.configuration.backend.DesktopBackend WorkPathVariable"/>
+/etc/libreoffice/registry/main.xcd:        <value oor:external="com.sun.star.configuration.backend.DesktopBackend givenname"/>
+/etc/libreoffice/registry/main.xcd:        <value oor:external="com.sun.star.configuration.backend.DesktopBackend sn"/>
+/etc/libreoffice/registry/main.xcd:          <value oor:external="com.sun.star.configuration.backend.DesktopBackend EnableATToolSupport"/>
+/etc/libreoffice/registry/ogltrans.xcd:        <value oor:separator=";">vnd.sun.star.expand:$BRAND_BASE_DIR/$BRAND_SHARE_SUBDIR/config/soffice.cfg/simpress/transitions.xml;vnd.sun.star.expand:$BRAND_BASE_DIR/$BRAND_SHARE_SUBDIR/config/soffice.cfg/simpress/transitions-ogl.xml</value>
+/etc/libreoffice/registry/res/registry_es.xcd:        <value xml:lang="es">Mi configuraci&#xF3;n </value>
+/etc/libreoffice/registry/res/registry_es.xcd:              <node oor:name="confirmation">
+/etc/libreoffice/registry/res/registry_es.xcd:              <node oor:name="confirmation">
+/etc/libreoffice/registry/res/registry_es.xcd:            <value xml:lang="es">Combina y centra o separa celdas conforme al estado actual</value>
+/etc/libreoffice/registry/res/registry_es.xcd:            <value xml:lang="es">Preconfiguraciones de estilos</value>
+/etc/security/limits.conf:# /etc/security/limits.conf
+/etc/security/limits.conf:#Also note that configuration files in /etc/security/limits.d directory,
+/etc/security/limits.conf:#can be overridden with a wildcard setting in a config file in the
+/etc/security/namespace.conf:# /etc/security/namespace.conf
+/etc/security/sepermit.conf:# /etc/security/sepermit.conf
+/etc/security/time.conf:# this is an example configuration file for the pam_time module. Its syntax
+/etc/security/access.conf:# '|'. This is useful for configurations where you are trying to use
+/etc/security/pam_env.conf:# This is the configuration file for pam_env, a PAM module to load in
+/etc/security/pam_env.conf:# a configurable list of environment variables for a
+/etc/security/pam_env.conf:# that they are things that are likely to be configured by
+/etc/security/pam_env.conf:# in the same config file?
+/etc/security/group.conf:# This is the configuration file for the pam_group module.
+/etc/security/group.conf:# End of group.conf file
+/etc/security/capability.conf:# /etc/security/capability.conf
+/etc/security/capability.conf:#   config=<file> - override the default config for the module with file
+/etc/security/capability.conf:## 'everyone else' gets no inheritable capabilities (restrictive config)
+/etc/update-motd.d/50-motd-news:# Source the local configuration
+/etc/update-motd.d/50-motd-news:# This makes this script very easy to disable in /etc/default/motd-news configuration
+/etc/update-motd.d/50-motd-news:# Loop over any configured URLs
+/etc/sudo.conf:# Default /etc/sudo.conf file
+/etc/sudo.conf:# On some systems, this can be expensive so the behavior is configurable.
+/etc/uniconf.conf:/ = retry:unix:/var/lib/uniconf/control
+/etc/uniconf.conf:ca/nit/uniconfd = ini:/var/lib/uniconf/uniconfd.ini
+/etc/uniconf.conf:ca/nit/nssuniconf = unix:/var/lib/uniconf/control
+/etc/xattr.conf:# /etc/xattr.conf
+/etc/debconf.conf:# This is the main config file for debconf. It tells debconf where to
+/etc/debconf.conf:# except the first sets up a database for debconf to use. For details, see
+/etc/debconf.conf:# debconf.conf(5) (in the debconf-doc package).
+/etc/debconf.conf:# Debconf will use this database to store the data you enter into it,
+/etc/debconf.conf:Config: configdb
+/etc/debconf.conf:# Debconf will use this database to store static template data.
+/etc/debconf.conf:Name: config
+/etc/debconf.conf:Filename: /var/cache/debconf/config.dat
+/etc/debconf.conf:Filename: /var/cache/debconf/passwords.dat
+/etc/debconf.conf:# Set up the configdb database. By default, it consists of a stack of two
+/etc/debconf.conf:Name: configdb
+/etc/debconf.conf:Stack: config, passwords
+/etc/debconf.conf:Filename: /var/cache/debconf/templates.dat
+/etc/debconf.conf:# people's needs, but debconf's database drivers can be used to do much
+/etc/debconf.conf:# more interesting things. For example, suppose you want to use config
+/etc/debconf.conf:# is accessed via LDAP. You don't want to write to the remote debconf database,
+/etc/debconf.conf:# A remote NFS mounted database, read-only. It is optional; if debconf
+/etc/debconf.conf:#Directory: /mnt/otherhost/var/cache/debconf/config
+/etc/debconf.conf:#BaseDN: cn=debconf,dc=domain,dc=com
+/etc/debconf.conf:#Stack: configdb, remotedb
+/etc/debconf.conf:# debconf.conf(5) page for details.
+/etc/netconfig:# The network configuration file. This file is currently only used in
+/etc/default/cryptdisks:# mountpoins which are configured in /etc/fstab as arguments. Separate
+/etc/default/grub:#   info -f grub -n 'Simple configuration'
+/etc/default/dbus:# This is a configuration file for /etc/init.d/dbus; it allows you to
+/etc/default/rsync:#  about not starting rsyncd (you still need to modify inetd's config yourself).
+/etc/default/rsync:# which file should be used as the configuration file for rsync.
+/etc/default/rsync:# This file is used instead of the default /etc/rsyncd.conf
+/etc/default/rsync:#          rsync you might want to symlink /etc/rsyncd.conf to
+/etc/default/rsync:# Don't forget to create an appropriate config file,
+/etc/default/openvpn:# This is the configuration file for /etc/init.d/openvpn
+/etc/default/openvpn:# The VPN name refers to the VPN configutation file name.
+/etc/default/openvpn:# i.e. "home" would be /etc/openvpn/home.conf
+/etc/default/ufw:IPT_SYSCTL=/etc/ufw/sysctl.conf
+/etc/default/ufw:# be found in net/netfilter/Kconfig of your kernel source. Some common modules:
+/etc/default/networkd-dispatcher:# Specify command line options here. This config file is used
+/etc/default/sysstat:# will be overwritten by debconf!
+/etc/geoclue/geoclue.conf:# NOTE: All configurations settings below are mandatory and the defaults are
+/etc/geoclue/geoclue.conf:# Agent configuration options
+/etc/geoclue/geoclue.conf:# Network NMEA source configuration options
+/etc/geoclue/geoclue.conf:# 3G source configuration options
+/etc/geoclue/geoclue.conf:# CDMA source configuration options
+/etc/geoclue/geoclue.conf:# Modem GPS source configuration options
+/etc/geoclue/geoclue.conf:# WiFi source configuration options
+/etc/geoclue/geoclue.conf:# Compass configuration options
+/etc/geoclue/geoclue.conf:# Static source configuration options
+/etc/geoclue/geoclue.conf:# sources in this file so they won't override the configured static location.
+/etc/geoclue/geoclue.conf:# Application configuration options
+/etc/sysctl.d/10-ipv6-privacy.conf:# to use in autoconfiguration. Privacy extensions allow using a randomly
+/etc/sysctl.d/10-ipv6-privacy.conf:net.ipv6.conf.all.use_tempaddr = 2
+/etc/sysctl.d/10-ipv6-privacy.conf:net.ipv6.conf.default.use_tempaddr = 2
+/etc/sysctl.d/README.sysctl:Kernel system variables configuration files
+/etc/sysctl.d/README.sysctl:Files found under the /etc/sysctl.d directory that end with .conf are
+/etc/sysctl.d/README.sysctl:you can either edit /etc/sysctl.conf or make a new file.
+/etc/sysctl.d/README.sysctl:with something the package builder needs later. It must end with .conf though.
+/etc/sysctl.d/README.sysctl:/etc/sysctl.d/local.conf but as long as you follow the rules for the names
+/etc/sysctl.d/README.sysctl:of the file, anything will work. See sysctl.conf(8) man page for details
+/etc/sysctl.d/10-network-security.conf:net.ipv4.conf.default.rp_filter=2
+/etc/sysctl.d/10-network-security.conf:net.ipv4.conf.all.rp_filter=2
+/etc/ld.so.conf.d/libc.conf:# libc default configuration
+/etc/e2scrub.conf:# e2scrub configuration file
+/etc/nsswitch.conf:# /etc/nsswitch.conf
+/etc/nsswitch.conf:# Example configuration of GNU Name Service Switch functionality.
+/etc/modprobe.d/blacklist.conf:# causes no end of confusion by creating unexpected network interfaces
+/etc/modprobe.d/iwlwifi.conf:# /etc/modprobe.d/iwlwifi.conf
+/etc/adduser.conf:# /etc/adduser.conf: `adduser' configuration.
+/etc/adduser.conf:# See adduser(8) and adduser.conf(5) for full documentation.
+/etc/adduser.conf:# The directory from which skeletal user configuration files
+/etc/adduser.conf:#UID_POOL=/etc/adduser-pool.conf
+/etc/adduser.conf:#GID_POOL=/etc/adduser-pool.conf
+/etc/adduser.conf:# It is a configuration error to define both variables
+/etc/deluser.conf:# /etc/deluser.conf: `deluser' configuration.
+/etc/deluser.conf:# See deluser(8) and deluser.conf(5) for full documentation.
+/etc/pnm2ppa.conf:# Sample configuration file 
+/etc/pnm2ppa.conf:# /etc/pnm2ppa.conf
+/etc/pnm2ppa.conf:# line argument.   Otherwise, if not set in the configuration file
+/etc/pnm2ppa.conf:# system configuration  file (/etc/pnm2ppa.conf), and not from configuration 
+/etc/ld.so.conf:include /etc/ld.so.conf.d/*.conf
+/etc/dpkg/dpkg.cfg:# dpkg configuration file
+/etc/pcmcia/config.opts:# generally can't be reconfigured.
+/etc/openvpn/update-resolv-conf:# Parses DHCP options from openvpn to update resolv.conf
+/etc/openvpn/update-resolv-conf:# To use set as 'up' and 'down' script in your openvpn *.conf:
+/etc/openvpn/update-resolv-conf:# up /etc/openvpn/update-resolv-conf
+/etc/openvpn/update-resolv-conf:# down /etc/openvpn/update-resolv-conf
+/etc/openvpn/update-resolv-conf:# Used snippets of resolvconf script by Thomas Hood and Chris Hanson.
+/etc/openvpn/update-resolv-conf:if [ ! -x /sbin/resolvconf ] ; then
+/etc/openvpn/update-resolv-conf:    logger "[OpenVPN:update-resolve-conf] missing binary /sbin/resolvconf";
+/etc/openvpn/update-resolv-conf:	echo -n "$R" | /sbin/resolvconf -a "${dev}.openvpn"
+/etc/openvpn/update-resolv-conf:	/sbin/resolvconf -d "${dev}.openvpn"
+/etc/groff/man.local:.\" Set this register to configure which the `MR` macro uses.
+/etc/dbus-1/system.d/com.redhat.NewPrinterNotification.conf:<!DOCTYPE busconfig PUBLIC
+/etc/dbus-1/system.d/com.redhat.NewPrinterNotification.conf: "http://www.freedesktop.org/standards/dbus/1.0/busconfig.dtd">
+/etc/dbus-1/system.d/com.redhat.NewPrinterNotification.conf:<busconfig>
+/etc/dbus-1/system.d/com.redhat.NewPrinterNotification.conf:</busconfig>
+/etc/dbus-1/system.d/org.kubuntu.qaptworker3.conf:<!DOCTYPE busconfig PUBLIC
+/etc/dbus-1/system.d/org.kubuntu.qaptworker3.conf: "http://www.freedesktop.org/standards/dbus/1.0/busconfig.dtd">
+/etc/dbus-1/system.d/org.kubuntu.qaptworker3.conf:<busconfig>
+/etc/dbus-1/system.d/org.kubuntu.qaptworker3.conf:</busconfig>
+/etc/dbus-1/system.d/kerneloops.conf:<!-- This configuration file specifies the required security policies
+/etc/dbus-1/system.d/kerneloops.conf:<!DOCTYPE busconfig PUBLIC "-//freedesktop//DTD D-BUS Bus Configuration 1.0//EN"
+/etc/dbus-1/system.d/kerneloops.conf: "http://www.freedesktop.org/standards/dbus/1.0/busconfig.dtd">
+/etc/dbus-1/system.d/kerneloops.conf:<busconfig>
+/etc/dbus-1/system.d/kerneloops.conf:  <!-- ../system.conf have denied everything, so we just punch some holes -->
+/etc/dbus-1/system.d/kerneloops.conf:</busconfig>
+/etc/dbus-1/system.d/com.ubuntu.SoftwareProperties.conf:<!DOCTYPE busconfig PUBLIC
+/etc/dbus-1/system.d/com.ubuntu.SoftwareProperties.conf: "http://www.freedesktop.org/standards/dbus/1.0/busconfig.dtd">
+/etc/dbus-1/system.d/com.ubuntu.SoftwareProperties.conf:<busconfig>
+/etc/dbus-1/system.d/com.ubuntu.SoftwareProperties.conf:</busconfig>
+/etc/dbus-1/system.d/sddm_org.freedesktop.DisplayManager.conf:<!DOCTYPE busconfig PUBLIC
+/etc/dbus-1/system.d/sddm_org.freedesktop.DisplayManager.conf: "http://www.freedesktop.org/standards/dbus/1.0/busconfig.dtd">
+/etc/dbus-1/system.d/sddm_org.freedesktop.DisplayManager.conf:<busconfig>
+/etc/dbus-1/system.d/sddm_org.freedesktop.DisplayManager.conf:</busconfig>
+/etc/dbus-1/system.d/com.hp.hplip.conf:<!DOCTYPE busconfig PUBLIC
+/etc/dbus-1/system.d/com.hp.hplip.conf: "http://www.freedesktop.org/standards/dbus/1.0/busconfig.dtd">
+/etc/dbus-1/system.d/com.hp.hplip.conf:<busconfig>
+/etc/dbus-1/system.d/com.hp.hplip.conf:</busconfig>
+/etc/dbus-1/system.d/com.ubuntu.USBCreator.conf:<!DOCTYPE busconfig PUBLIC
+/etc/dbus-1/system.d/com.ubuntu.USBCreator.conf: "http://www.freedesktop.org/standards/dbus/1.0/busconfig.dtd">
+/etc/dbus-1/system.d/com.ubuntu.USBCreator.conf:<busconfig>
+/etc/dbus-1/system.d/com.ubuntu.USBCreator.conf:</busconfig>
+/etc/dbus-1/system.d/com.ubuntu.LanguageSelector.conf:<!DOCTYPE busconfig PUBLIC
+/etc/dbus-1/system.d/com.ubuntu.LanguageSelector.conf: "http://www.freedesktop.org/standards/dbus/1.0/busconfig.dtd">
+/etc/dbus-1/system.d/com.ubuntu.LanguageSelector.conf:<busconfig>
+/etc/dbus-1/system.d/com.ubuntu.LanguageSelector.conf:</busconfig>
+/etc/dbus-1/system.d/org.opensuse.CupsPkHelper.Mechanism.conf:<!DOCTYPE busconfig PUBLIC
+/etc/dbus-1/system.d/org.opensuse.CupsPkHelper.Mechanism.conf: "http://www.freedesktop.org/standards/dbus/1.0/busconfig.dtd">
+/etc/dbus-1/system.d/org.opensuse.CupsPkHelper.Mechanism.conf:<busconfig>
+/etc/dbus-1/system.d/org.opensuse.CupsPkHelper.Mechanism.conf:</busconfig>
+/etc/dbus-1/system.d/com.redhat.PrinterDriversInstaller.conf:<!DOCTYPE busconfig PUBLIC
+/etc/dbus-1/system.d/com.redhat.PrinterDriversInstaller.conf: "http://www.freedesktop.org/standards/dbus/1.0/busconfig.dtd">
+/etc/dbus-1/system.d/com.redhat.PrinterDriversInstaller.conf:<busconfig>
+/etc/dbus-1/system.d/com.redhat.PrinterDriversInstaller.conf:</busconfig>
+/etc/initramfs-tools/initramfs.conf:# initramfs.conf
+/etc/initramfs-tools/initramfs.conf:# Configuration file for mkinitramfs(8). See initramfs.conf(5).
+/etc/initramfs-tools/initramfs.conf:# Note that configuration options from this file can be overridden
+/etc/initramfs-tools/initramfs.conf:# by config files in the /etc/initramfs-tools/conf.d directory.
+/etc/libblockdev/3/conf.d/00-default.cfg:# This is the default configuration for the libblockdev library. For
+/etc/ufw/ufw.conf:# /etc/ufw/ufw.conf
+/etc/ufw/sysctl.conf:# override /etc/sysctl.conf and /etc/sysctl.d. If you prefer to use
+/etc/ufw/sysctl.conf:# /etc/sysctl.conf, please adjust IPT_SYSCTL in /etc/default/ufw. See
+/etc/ufw/sysctl.conf:#net/ipv6/conf/default/forwarding=1
+/etc/ufw/sysctl.conf:#net/ipv6/conf/all/forwarding=1
+/etc/ufw/sysctl.conf:net/ipv4/conf/all/accept_redirects=0
+/etc/ufw/sysctl.conf:net/ipv4/conf/default/accept_redirects=0
+/etc/ufw/sysctl.conf:net/ipv6/conf/all/accept_redirects=0
+/etc/ufw/sysctl.conf:net/ipv6/conf/default/accept_redirects=0
+/etc/ufw/sysctl.conf:net/ipv4/conf/all/log_martians=0
+/etc/ufw/sysctl.conf:net/ipv4/conf/default/log_martians=0
+/etc/ufw/sysctl.conf:# Uncomment this to turn off ipv6 autoconfiguration
+/etc/ufw/sysctl.conf:#net/ipv6/conf/default/autoconf=1
+/etc/ufw/sysctl.conf:#net/ipv6/conf/all/autoconf=1
+/etc/ufw/sysctl.conf:#net/ipv6/conf/default/use_tempaddr=2
+/etc/ufw/sysctl.conf:#net/ipv6/conf/all/use_tempaddr=2
+/etc/init.d/spice-vdagent:# chkconfig:   345 70 30
+/etc/init.d/cups:    if type udevadm > /dev/null 2>&1 && [ -x /lib/udev/udev-configure-printer ]; then
+/etc/init.d/cups:	    /lib/udev/udev-configure-printer add "${printer#/sys}"
+/etc/init.d/procps:# Description:  Loads kernel parameters that are specified in /etc/sysctl.conf
+/etc/init.d/speech-dispatcher:	log_daemon_msg "Reloading $DESC configuration files" "speech-dispatcher"
+/etc/init.d/dbus:# Source defaults file; edit that file to configure this script.
+/etc/init.d/dbus:  log_action_begin_msg "Reloading $DESC config"
+/etc/init.d/dbus:  # hopefully this is enough time for dbus to reload it's config file.
+/etc/init.d/rsync:RSYNC_CONFIG_FILE=/etc/rsyncd.conf
+/etc/init.d/rsync:        log_failure_msg "missing or empty config file $RSYNC_CONFIG_FILE"
+/etc/init.d/rsync:        -- --no-detach --daemon --config "$RSYNC_CONFIG_FILE" $RSYNC_OPTS
+/etc/init.d/rsync:	log_warning_msg "re-reads the config file whenever a client connects."
+/etc/init.d/apparmor:unconfined, which can lead to unexpected situations.
+/etc/init.d/kerneloops:# Read configuration variable file if it is present
+/etc/init.d/openvpn:#              in /etc/default/openvpn and /etc/openvpn/*.conf
+/etc/init.d/openvpn:# Source defaults file; edit that file to configure this script.
+/etc/init.d/openvpn:    if grep -q '^[	 ]*daemon' $CONFIG_DIR/$NAME.conf ; then
+/etc/init.d/openvpn:      # daemon already given in config file
+/etc/init.d/openvpn:    if grep -q '^[	 ]*status ' $CONFIG_DIR/$NAME.conf ; then
+/etc/init.d/openvpn:      # status file already given in config file
+/etc/init.d/openvpn:    # tun using the "subnet" topology confuses the routing code that wrongly
+/etc/init.d/openvpn:    if grep -q '^[[:space:]]*dev[[:space:]]*tun' $CONFIG_DIR/$NAME.conf && \
+/etc/init.d/openvpn:       grep -q '^[[:space:]]*topology[[:space:]]*subnet' $CONFIG_DIR/$NAME.conf ; then
+/etc/init.d/openvpn:        if ! grep -q '^[[:space:]]*client-to-client' $CONFIG_DIR/$NAME.conf ; then
+/etc/init.d/openvpn:            sysctl -w net.ipv4.conf.all.send_redirects=0 > /dev/null
+/etc/init.d/openvpn:            SAVED_DEFAULT_SEND_REDIRECTS=$(sysctl -n net.ipv4.conf.default.send_redirects)
+/etc/init.d/openvpn:              sysctl -w net.ipv4.conf.default.send_redirects=0 > /dev/null
+/etc/init.d/openvpn:        --config $CONFIG_DIR/$NAME.conf || STATUS=1
+/etc/init.d/openvpn:      sysctl -w net.ipv4.conf.default.send_redirects=$SAVED_DEFAULT_SEND_REDIRECTS > /dev/null
+/etc/init.d/openvpn:      for CONFIG in `cd $CONFIG_DIR; ls *.conf 2> /dev/null`; do
+/etc/init.d/openvpn:        NAME=${CONFIG%%.conf}
+/etc/init.d/openvpn:        if test -e $CONFIG_DIR/$NAME.conf ; then
+/etc/init.d/openvpn:      if test -e $CONFIG_DIR/$1.conf ; then
+/etc/init.d/openvpn:    if egrep '^[[:blank:]]*user[[:blank:]]' $CONFIG_DIR/$NAME.conf > /dev/null 2>&1 ; then
+/etc/init.d/openvpn:          if ! test -f $CONFIG_DIR/$VPN.conf ; then
+/etc/init.d/openvpn:    for CONFIG in `cd $CONFIG_DIR; ls *.conf 2> /dev/null`; do
+/etc/init.d/openvpn:      NAME=${CONFIG%%.conf}
+/etc/init.d/openvpn:      if test -e $CONFIG_DIR/$NAME.conf ; then
+/etc/init.d/openvpn:        log_warning_msg "VPN '$NAME': missing $CONFIG_DIR/$NAME.conf file !"
+/etc/init.d/ufw:for s in "/usr/lib/ufw/ufw-init-functions" "/etc/ufw/ufw.conf" "/etc/default/ufw" ; do
+/etc/init.d/sysstat:# our configuration file
+/etc/init.d/sysstat:# ...overridden in the configuration file
+/etc/init.d/kmod:    for file in $(run-parts --list --regex='\.conf$' $dir 2> /dev/null || true); do
+/etc/init.d/cron:#                    security and more powerful configuration options.
+/etc/init.d/cron:reload|force-reload) log_daemon_msg "Reloading configuration files for periodic command scheduler" "cron"
+/etc/vim/vimrc:" Source a global configuration file if available
+/etc/vim/vimrc.tiny:" Vim configuration file, in effect when invoked as "vi". The aim of this
+/etc/vim/vimrc.tiny:" configuration file is to provide a Vim environment as compatible with the
+/etc/vim/vimrc.tiny:" original vi as possible. Note that ~/.vimrc configuration files as other
+/etc/vim/vimrc.tiny:" configuration files in the runtimepath are still sourced.
+/etc/vim/vimrc.tiny:" Debian system-wide default configuration Vim
+/etc/hp/hplip.conf:# hplip.conf.  Generated from hplip.conf.in by configure.
+/etc/hp/hplip.conf:# Following values are determined at configure time and cannot be changed.
+/etc/hp/hplip.conf:[configure]
+/etc/ca-certificates.conf:# This is autogenerated by dpkg-reconfigure ca-certificates.
+/etc/sysstat/sysstat.ioconf:# sysstat.ioconf
+/etc/sysstat/sysstat:# sysstat configuration file. See sysstat(5) manual page.
+/etc/ipp-usb/ipp-usb.conf:# ipp-usb.conf: example configuration file
+/etc/ipp-usb/ipp-usb.conf:  #     config - configuration web-console
+/etc/ipp-usb/ipp-usb.conf:  #     config     = @wheel    # Only wheel group members can do that
+/etc/ipp-usb/ipp-usb.conf:# Logging configuration
+/etc/pam.d/chfn:# The PAM configuration file for the Shadow `chfn' service
+/etc/pam.d/common-session:# This file is included from other service-specific PAM config files,
+/etc/pam.d/common-session:# To take advantage of this, it is recommended that you configure any
+/etc/pam.d/common-session:# end of pam-auth-update config
+/etc/pam.d/passwd:# The PAM configuration file for the Shadow `passwd' service
+/etc/pam.d/sudo:# Set up user limits from /etc/security/limits.conf.
+/etc/pam.d/chsh:# The PAM configuration file for the Shadow `chsh' service
+/etc/pam.d/common-password:# This file is included from other service-specific PAM config files,
+/etc/pam.d/common-password:# To take advantage of this, it is recommended that you configure any
+/etc/pam.d/common-password:# end of pam-auth-update config
+/etc/pam.d/common-session-noninteractive:# This file is included from other service-specific PAM config files,
+/etc/pam.d/common-session-noninteractive:# To take advantage of this, it is recommended that you configure any
+/etc/pam.d/common-session-noninteractive:# end of pam-auth-update config
+/etc/pam.d/chpasswd:# The PAM configuration file for the Shadow 'chpasswd' service
+/etc/pam.d/common-account:# This file is included from other service-specific PAM config files,
+/etc/pam.d/common-account:# To take advantage of this, it is recommended that you configure any
+/etc/pam.d/common-account:# end of pam-auth-update config
+/etc/pam.d/newusers:# The PAM configuration file for the Shadow 'newusers' service
+/etc/pam.d/sudo-i:# Set up user limits from /etc/security/limits.conf.
+/etc/pam.d/common-auth:# This file is included from other service-specific PAM config files,
+/etc/pam.d/common-auth:# To take advantage of this, it is recommended that you configure any
+/etc/pam.d/common-auth:# end of pam-auth-update config
+/etc/pam.d/cron:# The PAM configuration file for the cron daemon
+/etc/pam.d/cron:# and /etc/security/pam_env.conf.
+/etc/pam.d/cron:# through /etc/security/limits.conf
+/etc/pam.d/su:# The PAM configuration file for the Shadow `su' service
+/etc/pam.d/su:# Uncomment and edit /etc/security/time.conf if you need to set
+/etc/pam.d/su:# This module parses environment configuration file(s)
+/etc/pam.d/su:# and also allows you to use an extended config
+/etc/pam.d/su:# file /etc/security/pam_env.conf.
+/etc/pam.d/su:# Sets up user limits according to /etc/security/limits.conf
+/etc/pam.d/login:# The PAM configuration file for the Shadow `login' service
+/etc/pam.d/login:# pam_selinux.so changes the SELinux context of the used TTY and configures
+/etc/pam.d/login:# This module parses environment configuration file(s)
+/etc/pam.d/login:# and also allows you to use an extended config
+/etc/pam.d/login:# file /etc/security/pam_env.conf.
+/etc/pam.d/login:# Please edit /etc/security/group.conf to fit your needs
+/etc/pam.d/login:# Uncomment and edit /etc/security/time.conf if you need to set
+/etc/pam.d/login:# Uncomment and edit /etc/security/access.conf if you need to
+/etc/pam.d/login:# Sets up user limits according to /etc/security/limits.conf
+/etc/ldap/ldap.conf:# See ldap.conf(5) for details
+/etc/mime.types:application/conference-info+xml
+/etc/mime.types:application/tamp-apex-update-confirm		auc
+/etc/mime.types:application/tamp-community-update-confirm	cuc
+/etc/mime.types:application/tamp-sequence-adjust-confirm	sac
+/etc/mime.types:application/tamp-update-confirm			tuc
+/etc/mime.types:application/vnd.3gpp.mcdata-service-config+xml
+/etc/mime.types:application/vnd.3gpp.mcdata-ue-config+xml
+/etc/mime.types:application/vnd.3gpp.mcptt-service-config+xml
+/etc/mime.types:application/vnd.3gpp.mcptt-ue-config+xml
+/etc/mime.types:application/vnd.3gpp.mcptt-ue-init-config+xml
+/etc/mime.types:application/vnd.3gpp.mcvideo-service-config+xml
+/etc/mime.types:application/vnd.3gpp.mcvideo-ue-config+xml
+/etc/mime.types:application/vnd.3gpp.seal-ue-config-info+xml
+/etc/mime.types:application/vnd.cendio.thinlinc.clientconf	tlclient
+/etc/mime.types:application/vnd.cluetrust.cartomobile-config	c11amc
+/etc/mime.types:application/vnd.cluetrust.cartomobile-config-pkg	c11amz
+/etc/mime.types:application/vnd.cncf.helm.config.v1+json
+/etc/mime.types:application/vnd.marlin.drm.conftoken+xml
+/etc/mime.types:application/vnd.nokia.iptv.config+xml
+/etc/mime.types:application/vnd.oma-scws-config
+/etc/mime.types:application/vnd.radisys.msml-audit-conf+xml
+/etc/mime.types:application/vnd.radisys.msml-conf+xml
+/etc/mime.types:application/vnd.vidsoft.vidconference		vsc
+/etc/mime.types:application/x-ns-proxy-autoconfig		pac
+/etc/mime.types:application/xcon-conference-info+xml
+/etc/mime.types:application/xcon-conference-info-diff+xml
+/etc/mime.types:audio/vorbis-config
+/etc/X11/app-defaults/XSm:*chooseSessionMessageLabel.label:	Press button again to confirm, or hit Cancel...
+/etc/X11/app-defaults/Xvidtune: hardware configuration\n
+/etc/X11/Xwrapper.config:# Xwrapper.config (Debian X Window System server wrapper configuration file)
+/etc/X11/Xwrapper.config:# xserver-xorg-legacy package using values from the debconf database.
+/etc/X11/Xwrapper.config:# See the Xwrapper.config(5) manual page for more information.
+/etc/X11/Xwrapper.config:#   dpkg-reconfigure xserver-xorg-legacy
+/etc/X11/Xsession:    run-parts --list --regex '\.conf$' /etc/X11/Xsession.options.d | xargs -d '\n' cat
+/etc/X11/Xsession.d/30x11-common_xresources:# Then merge the user's X resources, if the options file is so configured.
+/etc/X11/Xsession.d/90gpg-agent:# from your session initialization with something like "gpgconf
+/etc/X11/Xsession.d/90gpg-agent:agent_sock=$(gpgconf --list-dirs agent-socket)
+/etc/X11/Xsession.d/90gpg-agent:if [ -n "$(gpgconf --list-options gpg-agent | \
+/etc/X11/Xsession.d/90gpg-agent:    export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+/etc/X11/Xsession.options:# configuration options for /etc/X11/Xsession
+/etc/cloud/clean.d/99-installer-use-networkmanager:  echo "WARNING: cloud-init network config is limited to using network-manager."
+/etc/libaudit.conf:# This is the configuration file for libaudit tunables.
+/etc/lvm/lvm.conf:# This is an example configuration file for the LVM2 system.
+/etc/lvm/lvm.conf:# /etc/lvm/lvm.conf file.
+/etc/lvm/lvm.conf:# Refer to 'man lvm.conf' for further information including the file layout.
+/etc/lvm/lvm.conf:# Refer to 'man lvm.conf' for information about how settings configured in
+/etc/lvm/lvm.conf:# Refer to 'man lvmconfig' for information about displaying the built-in
+/etc/lvm/lvm.conf:# and configured values used by LVM.
+/etc/lvm/lvm.conf:# Configuration section config.
+/etc/lvm/lvm.conf:# How LVM configuration settings are handled.
+/etc/lvm/lvm.conf:config {
+/etc/lvm/lvm.conf:	# Configuration option config/checks.
+/etc/lvm/lvm.conf:	# If enabled, any LVM configuration mismatch is reported.
+/etc/lvm/lvm.conf:	# This implies checking that the configuration key is understood by
+/etc/lvm/lvm.conf:	# any configuration mismatch is ignored and the default value is used
+/etc/lvm/lvm.conf:	# without any warning (a message about the configuration key not being
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# Configuration option config/abort_on_errors.
+/etc/lvm/lvm.conf:	# Abort the LVM process if a configuration mismatch is found.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# Configuration option config/profile_dir.
+/etc/lvm/lvm.conf:	# Directory where LVM looks for configuration profiles.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option is advanced.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option is advanced.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option does not have a default value defined.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option is advanced.
+/etc/lvm/lvm.conf:	# This configuration option does not have a default value defined.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option does not have a default value defined.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# use_blkid_wiping.) Wiping each detected signature must be confirmed.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option does not have a default value defined.
+/etc/lvm/lvm.conf:	# This configuration section has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option does not have a default value defined.
+/etc/lvm/lvm.conf:	# This configuration option does not have a default value defined.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option does not have a default value defined.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# plus 1.12 MiB of RAM per megabyte of configured read cache size.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# See <lvm command> --logonly --configreport log -o help
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# See <lvm command> --logonly --configreport log -o help
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# <lvm command> --logonly --configreport log -S help for the
+/etc/lvm/lvm.conf:	# using <lvm command> --configreport log -S <selection criteria>
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# still produce output: dumpconfig, lvdisplay, lvmdiskscan, lvs, pvck,
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option does not have a default value defined.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option is advanced.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option is advanced.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:# and an 'archive' contains old metadata configurations. They are
+/etc/lvm/lvm.conf:	# Maintain a backup of the current metadata configuration.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# Maintain an archive of old metadata configurations.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option is advanced.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# Location of /etc system configuration directory.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option does not have a default value defined.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option does not have a default value defined.
+/etc/lvm/lvm.conf:	# This configuration option does not have a default value defined.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option does not have a default value defined.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	#     section of an lvm configuration file, e.g. lvmlocal.conf.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option does not have a default value defined.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option is advanced.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option does not have a default value defined.
+/etc/lvm/lvm.conf:	# This configuration option does not have a default value defined.
+/etc/lvm/lvm.conf:	# This configuration option does not have a default value defined.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# While activating devices, I/O to devices being (re)configured is
+/etc/lvm/lvm.conf:	# This configuration option is advanced.
+/etc/lvm/lvm.conf:	# This configuration option does not have a default value defined.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option does not have a default value defined.
+/etc/lvm/lvm.conf:	# This configuration option does not have a default value defined.
+/etc/lvm/lvm.conf:# This configuration section has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option is advanced.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option is advanced.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option does not have a default value defined.
+/etc/lvm/lvm.conf:	# This configuration option is advanced.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option is advanced.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:# This configuration section has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# report/compact_output_cols configuration setting instead.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# reconfigures a mirror as necessary. If no mirror library is
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:# This configuration section has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvm.conf:	# This configuration section has variable name.
+/etc/lvm/lvm.conf:	# This configuration section has an automatic default value.
+/etc/lvm/lvm.conf:		# This configuration option does not have a default value defined.
+/etc/lvm/lvmlocal.conf:# This is a local configuration file template for the LVM2 system
+/etc/lvm/lvmlocal.conf:# which should be installed as /etc/lvm/lvmlocal.conf .
+/etc/lvm/lvmlocal.conf:# Refer to 'man lvm.conf' for information about the file layout.
+/etc/lvm/lvmlocal.conf:# The lvmlocal.conf file is normally expected to contain only the
+/etc/lvm/lvmlocal.conf:# ones in lvm.conf and are in turn overridden by ones in any enabled
+/etc/lvm/lvmlocal.conf:# lvm_<tag>.conf files.)
+/etc/lvm/lvmlocal.conf:	# main configuration file, e.g. lvm.conf. When used, it must be set to
+/etc/lvm/lvmlocal.conf:	# This configuration option has an automatic default value.
+/etc/lvm/lvmlocal.conf:	# This configuration option does not have a default value defined.
+/etc/lvm/lvmlocal.conf:	# This configuration option has an automatic default value.
+/etc/lvm/profile/command_profile_template.profile:# It contains all configuration settings that are customizable by command
+/etc/lvm/profile/command_profile_template.profile:# Then install the new profile in a directory as defined by config/profile_dir
+/etc/lvm/profile/command_profile_template.profile:# setting found in /etc/lvm/lvm.conf file.
+/etc/lvm/profile/command_profile_template.profile:# Refer to 'man lvm.conf' for further information about profiles and
+/etc/lvm/profile/command_profile_template.profile:# general configuration file layout.
+/etc/lvm/profile/cache-smq.profile:# Demo configuration 'smq' cache policy
+/etc/lvm/profile/metadata_profile_template.profile:# It contains all configuration settings that are customizable by metadata
+/etc/lvm/profile/metadata_profile_template.profile:# Then install the new profile in a directory as defined by config/profile_dir
+/etc/lvm/profile/metadata_profile_template.profile:# setting found in /etc/lvm/lvm.conf file.
+/etc/lvm/profile/metadata_profile_template.profile:# Refer to 'man lvm.conf' for further information about profiles and
+/etc/lvm/profile/metadata_profile_template.profile:# general configuration file layout.
+/etc/lvm/profile/cache-mq.profile:# Demo configuration 'mq' cache policy
+/etc/lvm/profile/vdo-small.profile:# Demo configuration for 'VDO' using less memory.
+/etc/lvm/profile/vdo-small.profile:# ~lvmconfig --type full | grep vdo
+/etc/lvm/profile/lvmdbusd.profile:# LVM configuration profile used by lvmdbusd daemon.
+/etc/lvm/profile/lvmdbusd.profile:# lvmdbusd and it contains configuration that is important for lvmdbusd to
+/etc/sane.d/plustek.conf:# Plustek-SANE Backend configuration file
+/etc/sane.d/dll.conf:# dll.conf - Configuration file for the SANE dynamic backend loader
+/etc/sane.d/dll.conf:# Backends can also be enabled by configuration snippets under the dll.d/
+/etc/sane.d/dll.conf:# directory -- third party backends can drop their configuration file in
+/etc/sane.d/stv680.conf:#stv680.conf
+/etc/sane.d/pixma.conf:# pixma.conf configuration for the sane pixma backend
+/etc/sane.d/pixma.conf:# are on a different subnet, configure your scanners URI here
+/etc/sane.d/artec_eplus48u.conf:# artec_eplus48u - SANE Backend configuration file
+/etc/sane.d/artec_eplus48u.conf:# Every device configuration in this file must begin with an usb entry.
+/etc/sane.d/artec_eplus48u.conf:# The device entry must be the last one in this config file (or the last one before a
+/etc/sane.d/mustek_usb.conf:# mustek_usb.conf: Configuration file for Mustek USB scanner
+/etc/sane.d/gt68xx.conf:# gt68xx.conf: Configuration file for GT68XX based scanners
+/etc/sane.d/gt68xx.conf:# Manual configuration is necessary for some scanners. Please uncomment the
+/etc/sane.d/coolscan2.conf:# coolscan2.conf: sample configuration file for coolscan2 backend
+/etc/sane.d/coolscan2.conf:# no configuration file can be found.
+/etc/sane.d/coolscan2.conf:# You can also configure the backend for specific device files, but this
+/etc/sane.d/dll.d/hplip:# dll.conf snippet for hplip
+/etc/sane.d/u12.conf:# U12-SANE Backend configuration file
+/etc/sane.d/magicolor.conf:### magicolor.conf
+/etc/sane.d/magicolor.conf:### here are some examples for how to configure the Magicolor backend
+/etc/sane.d/kodakaio.conf:### kodakaio.conf
+/etc/sane.d/kodakaio.conf:### here are some examples for how to configure the kodakaio backend
+/etc/sane.d/epsonds.conf:# epsonds.conf
+/etc/sane.d/epsonds.conf:# here are some examples for how to configure the epsonds backend
+/etc/sane.d/epson2.conf:# epson2.conf
+/etc/sane.d/epson2.conf:# here are some examples for how to configure the EPSON2 backend
+/etc/sane.d/saned.conf:# saned.conf
+/etc/sane.d/saned.conf:# NOTE: /etc/inetd.conf (or /etc/xinetd.conf) and
+/etc/sane.d/saned.conf:# /etc/services must also be properly configured to start
+/etc/sane.d/saned.conf:# and inetd.conf(4) (or xinetd.conf(5)).
+/etc/sane.d/xerox_mfp.conf:#xerox_mfp.conf
+/etc/sane.d/xerox_mfp.conf:#     Uncomment and configure:
+/etc/sane.d/ma1509.conf:#ma1509.conf: see sane-ma1509(5)
+/etc/sane.d/plustek_pp.conf:# Plustek-PP SANE Backend configuration file
+/etc/sane.d/plustek_pp.conf:# leave the default values as specified in /etc/modules.conf
+/etc/sane.d/pieusb.conf:# pieusb.conf: Configuration file for PIE/Reflecta USB scanner
+/etc/sane.d/hpsj5s.conf:#hpsj5s.conf
+/etc/sane.d/genesys.conf:# genesys.conf: Configuration file for Genesys Logic GL646 and GL841 based scanners
+/etc/sane.d/dell1600n_net.conf:# An example config file for dell1600n_net backend.
+/etc/sane.d/escl.conf:# escl.conf -- ESCL configuration
+/etc/sane.d/escl.conf:# Explanation : if you can't detect your device but it's an eSCL device, modify this escl conf' file to use your device.
+/etc/sane.d/escl.conf:# You can also configure a device on a single line starting with 'device'
+/etc/sane.d/epson.conf:# epson.conf
+/etc/sane.d/epson.conf:# here are some examples for how to configure the EPSON backend
+/etc/sane.d/epson.conf:# There are two different methods of configuring a USB scanner: libusb and the kernel module
+/etc/sane.d/epson.conf:# And for the scanner module, use the following configuration:
+/etc/sane.d/coolscan3.conf:# coolscan3.conf: sample configuration file for coolscan3 backend
+/etc/sane.d/coolscan3.conf:# no configuration file can be found.
+/etc/sane.d/coolscan3.conf:# You can also configure the backend for specific device files, but this
+/etc/sane.d/net.conf:# This is the net backend config file.
+/etc/sane.d/hp5400.conf:# hp5400.conf
+/etc/sane.d/rts8891.conf:# rts8891.conf: Configuration file for the rts8891 backend
+/etc/sane.d/test.conf:# test backend configuration file
+/etc/sane.d/canon.conf:#canon.conf
+/etc/sane.d/airscan.conf:# sane-airscan example configuration file
+/etc/sane.d/airscan.conf:#   trace = path         ; enables protocol trace and configures output
+/etc/sane.d/airscan.conf:#   affect manually configured devices
+/etc/sane.d/p5.conf:# configuration file for the p5 backend.
+/etc/sane.d/p5.conf:# configuration option to override detected model name
+/etc/PackageKit/PackageKit.conf:# Default backends, as chosen in the configure script. This will be used
+/etc/fuse.conf:# The file /etc/fuse.conf allows for the following parameters:
+/etc/fuse.conf:# order to have it work as user you need user_allow_other in /etc/fuse.conf as
+/etc/cron.daily/apt-compat:    eval $(apt-config shell RandomSleep APT::Periodic::RandomSleep)
+/etc/cron.daily/sysstat:# Our configuration file
+/etc/cron.daily/sysstat:# Read our config
+/etc/cron.daily/logrotate:/usr/sbin/logrotate /etc/logrotate.conf
+/etc/usb_modeswitch.conf:# Disable check for MBIM module presence and configuration globally (to aid
+/etc/usb_modeswitch.conf:# If the configuration for your Huawei modem uses the standard switching method,
+/etc/usb_modeswitch.conf:# with recent Linux distributions, possibly avoiding configuration through a
+/etc/pulse/client.conf:## Configuration file for PulseAudio clients. See pulse-client.conf(5) for
+/etc/kernel/postinst.d/zz-update-grub:    # Only run on postinst configure and postrm remove, to avoid wasting
+/etc/kernel/postinst.d/zz-update-grub:    */postinst.d/*:|*/postinst.d/*:configure|*/postrm.d/*:|*/postrm.d/*:remove)
+/etc/kernel/postinst.d/initramfs-tools:	if [ -z "$1" ] || [ "$1" != "configure" ]; then
+/etc/kernel/postinst.d/xx-update-initrd-links:# postinst.d hook. It will also honor kernel_img.conf settings to
+/etc/kernel/postrm.d/zz-update-grub:    # Only run on postinst configure and postrm remove, to avoid wasting
+/etc/kernel/postrm.d/zz-update-grub:    */postinst.d/*:|*/postinst.d/*:configure|*/postrm.d/*:|*/postrm.d/*:remove)
