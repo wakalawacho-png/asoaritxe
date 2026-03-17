@@ -1,0 +1,8 @@
+total 28
+-rw-rw-r-- 1 aritxe aritxe 3342 mar 17 15:57 Basics Entrada-Sortida.md
+-rw-rw-r-- 1 aritxe aritxe 1066 mar 17 16:18 Basics Pipe.md
+-rw-rw-r-- 1 aritxe aritxe    0 mar 17 18:34 ex2.txt
+drwxrwxr-x 2 aritxe aritxe 4096 feb 17 17:36 Guiats
+-rwxr-xr-x 1 aritxe aritxe   70 mar 17 18:34 informepermisos.sh
+-rw-rw-r-- 1 aritxe aritxe    9 mar 17 18:34 permisos.txt
+-rw-rw-r-- 1 aritxe aritxe 4478 mar 17 18:19 Redireccionament Final - I.md

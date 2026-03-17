@@ -1,0 +1,11 @@
+tota
+-rw-7 Basics Entrada-Sortida.md
+-rw-8 Basics Pipe.md
+-rw-4 ex2.txt
+drwx6 Guiats
+-rw-4 informepermisos2.sh
+-rwx6 informepermisos.sh
+-rw-5 permisos2.txt
+-rw-6 permisos.txt
+-rw-9 Redireccionament Final - I.md
+-rw- ex2.txt

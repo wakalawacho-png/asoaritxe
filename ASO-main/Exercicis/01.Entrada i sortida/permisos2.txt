@@ -1,0 +1,30 @@
+tota
+-rw-7 Basics Entrada-
+-rw-8 Basics Pipe.md
+-rw-4 ex2.txt
+drwx6 Guiats
+-rw-4 informepermisos
+-rwx5 informepermisos
+-rw-4 permisos2.txt
+-rw-4 permisos.txt
+-rw-9 Redireccionamen
+tota
+-rw-7 Basics Entrada-
+-rw-8 Basics Pipe.md
+-rw-4 ex2.txt
+drwx6 Guiats
+-rw-4 informepermisos
+-rwx5 informepermisos
+-rw-4 permisos2.txt
+-rw-4 permisos.txt
+-rw-9 Redireccionamen
+tota
+-rw-7 Basics Entrada-
+-rw-8 Basics Pipe.md
+-rw-4 ex2.txt
+drwx6 Guiats
+-rw-4 informepermisos
+-rwx5 informepermisos
+-rw-5 permisos2.txt
+-rw-5 permisos.txt
+-rw-9 Redireccionamen

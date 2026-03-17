@@ -15,7 +15,9 @@ L’script ha de:
 * Desar en un fitxer `errors.txt` els missatges d’error que es produeixin durant l'obtenció de les propietats del fitxer.  
 
 * Inclou en el script un exemple d'execució.  
-
+	#!/bin/bash
+		read $1 | ls -l >> resultats.txt 2>> errors.txt
+	./ script.sh fitxer.txt
 ---
 
 # 2. Informe permisos arxius
@@ -51,6 +53,7 @@ lrwx lerrors.txt -> errors.txt
 * Utilitzeu fitxers amb mides semblants.  
 
 * Cal incloure en l'entrega, l'exemple dels arxius que s'ha utilitzat per a fer les proves i el resultat d'aplicar el script a l'exemple. Tal i com teniu en l'enunciat.
+
 
 ---
 
