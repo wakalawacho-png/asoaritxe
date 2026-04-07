@@ -1,3 +1,5 @@
 OK: mar 07 abr 2026 16:08:43 CEST , aritxe , carrega actual: 0 , Llimit: 100
 OK: mar 07 abr 2026 16:08:53 CEST , aritxe , carrega actual: 0 , Llimit: 1.00
 ALERT: mar 07 abr 2026 16:09:21 CEST , aritxe , carrega actual: 0 , Limit: 0
+ALERT: mar 07 abr 2026 16:27:42 CEST , aritxe , carrega actual: 50 , Limit: 23
+OK: mar 07 abr 2026 16:28:29 CEST , aritxe , carrega actual: 50 , Llimit: 55
