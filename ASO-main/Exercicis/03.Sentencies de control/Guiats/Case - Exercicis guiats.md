@@ -92,10 +92,11 @@ esac
 ###  Executa el programa amb diferent nombre d'arguments (cada un dels casos)
 
 [Captura de pantalla]
+<img width="443" height="312" alt="image" src="https://github.com/user-attachments/assets/6d2192d3-f52a-415d-a5fa-a27285212b64" />
 
 ### Preguntes de reflexió
 
-1. Què passa quan l’opció no coincideix amb cap cas?
-2. Per què hi ha una línia amb `exit 1`?
-3. Quina diferència hi ha entre `start` i `Start`?
-4. Com s’indica més d’un patró en una mateixa línia?
+1. Què passa quan l’opció no coincideix amb cap cas? et mostra una linea la cual et diu com utilitzar l' script
+2. Per què hi ha una línia amb `exit 1`? per aturar completament l' script
+3. Quina diferència hi ha entre `start` i `Start`? la majuscula, l' script diferencia majuscules i minuscules
+4. Com s’indica més d’un patró en una mateixa línia? amb un pipe |
