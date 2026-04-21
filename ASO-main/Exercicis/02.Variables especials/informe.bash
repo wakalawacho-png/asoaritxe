@@ -1,7 +1,7 @@
 #!/bin/bash
-PARAMETRE="$1"
+PARAMETRE="$*"
 
-find / "*.log" | grep -i -n "$1"  > informe.log 2>>/dev/null
+find / "*.log" | grep -i -n "$PARAMETRE"  > informe.log 2>>/dev/null
 
 cat informe.log 
 
