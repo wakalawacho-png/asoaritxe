@@ -50,13 +50,17 @@ esac
 ### Executa'l per a cada una de les situacions
 
 [Captura de pantalla]
+<img width="561" height="309" alt="image" src="https://github.com/user-attachments/assets/bf064ca1-6a08-45f7-863f-5d185d63acb3" />
+
 
 ### Preguntes de reflexió
 
 1. Quina variable s’està avaluant dins del `case`?
-2. Quina línia indica el final de cada bloc?
-3. Què fa el bloc amb `*`?
-
+   la variable $color
+3. Quina línia indica el final de cada bloc?
+   la que es nomes ;;
+5. Què fa el bloc amb `*`?
+    fa que en cas de que el argument o variable no coincideixi amb cap dels casos executa una comanda
 ---
 
 ## 🧩 Activitat 2: `case` amb paràmetre
