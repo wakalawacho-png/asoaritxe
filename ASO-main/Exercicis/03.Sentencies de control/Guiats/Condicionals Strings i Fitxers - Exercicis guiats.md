@@ -46,13 +46,14 @@ echo "No s’ha demanat ajuda. Continua l’execució..."
 ### Executa'l per a cada una de les situacions
 
 [Captura de pantalla]
+<img width="798" height="245" alt="image" src="https://github.com/user-attachments/assets/9bbaa2ce-7376-473f-a5d1-11a3031c4be4" />
 
 
 ### Respòn a...
 
-1. Què fa l’script quan el primer paràmetre és `-h`?
-2. Què passa si no es posa cap argument?
-3. Quina variable s’està comparant i amb quin operador?
+1. Què fa l’script quan el primer paràmetre és `-h`? surt un misatje sobre com executar el script
+2. Què passa si no es posa cap argument? surt el mateix misatje que si posesis un argument qualsevol(excepte -h)
+3. Quina variable s’està comparant i amb quin operador? es compara el primer argument amb un =
 
 ---
 
