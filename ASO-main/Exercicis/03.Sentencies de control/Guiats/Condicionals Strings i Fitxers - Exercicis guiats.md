@@ -77,12 +77,14 @@ echo "Fitxer o paràmetre rebut: $1"
 ### Executa'l per a cada una de les situacions
 
 [Captura de pantalla]
+<img width="788" height="257" alt="image" src="https://github.com/user-attachments/assets/810137c5-2fbd-43ea-9a67-6bbc05adc941" />
+
 
 ### Respòn a...
 
-1. Quin operador detecta si la cadena està buida?
-2. Quina diferència hi ha entre `$1` i `$#`?
-3. Si passes diversos arguments, què mostrarà `$1`?
+1. Quin operador detecta si la cadena està buida? el -z
+2. Quina diferència hi ha entre `$1` i `$#`? $1 es el primer argumet, $# es el numero total de arguments
+3. Si passes diversos arguments, què mostrarà `$1`? mostrara sempre el primer argument
 
 ---
 
@@ -108,12 +110,15 @@ fi
 ### Executa'l per a cada una de les situacions
 
 [Captura de pantalla]
+<img width="819" height="252" alt="image" src="https://github.com/user-attachments/assets/fd9bc7e0-2b5c-4cb0-ae30-eddc4e5a2a94" />
 
 ### Respòn a...
 
-1. Quin operador comprova si el fitxer existeix?
-2. Si en comptes d’un fitxer passes un directori, què passa?
+1. Quin operador comprova si el fitxer existeix? el -e
+2. Si en comptes d’un fitxer passes un directori, què passa? et diu que existeix
 3. Com ho canviaries perquè només acceptés fitxers regulars?
+   amb el operardor -f
+   (if [ -z "$1" ]; then)
 
 ---
 
@@ -140,9 +145,11 @@ done
 ### Executa'l per a cada una de les situacions
 
 [Captura de pantalla]
+<img width="794" height="418" alt="image" src="https://github.com/user-attachments/assets/623dd419-6a61-424f-9600-77316936cd58" />
 
 ### Preguntes de reflexió
 
-1. Què passa si passes més d’un argument?
-2. Per què aquí s’utilitza `"$@"` en comptes de `$*`?
+1. Què passa si passes més d’un argument? et mostra la sortida que donaria el seu cas
+2. Per què aquí s’utilitza `"$@"` en comptes de `$*`? per a que tracti els arguments com una llista no com un sol
 3. Quin tipus d’estructura de control s’utilitza per diferenciar casos?
+   -d, -f , -x amb if i elif
